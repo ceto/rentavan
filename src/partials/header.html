@@ -1,0 +1,45 @@
+<div class="sitemheaderwrap">
+    <aside class="sitemheader">
+        <a class="sitemheader__brand" href="{{root}}/"><img src="{{root}}/assets/img/logo.svg" alt="<?= get_bloginfo('name'); ?>"></a>
+        <button class="js-allopen sitemheader__toggler">
+            <?= svginsert('burger'); ?>
+            <span>Menü</span>
+        </button>
+    </aside>
+</div>
+<div class="siteheaderwrap">
+    <aside class="siteheader">
+        <a class="siteheader__brand" href="{{root}}/"><img src="{{root}}/assets/img/logo.svg" alt="<?= get_bloginfo('name'); ?>"></a>
+        <nav class="siteheader__nav">
+            <ul class="mainmenu show-for-tablet">
+                {{> mainmenu }}
+            </ul>
+            <a class="siteheader__countryselect" type="button" data-toggle="countrysel-dropdown-pane">
+                {{svginsert "globe"}}
+                <span>HU</span>
+            </a>
+            <div class="dropdown-pane countrysel-dropdown-pane" id="countrysel-dropdown-pane" data-dropdown data-position="bottom" data-alignment="right" data-hover="true" data-hover-pane="true" data-autofocus="true">
+                <h6>Az oldal nyelve</h6>
+                <ul class="langselmenu">
+                    <li><a href="#">Magyar</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+                <br>
+                <hr class="fulldivider">
+                <br>
+                <?php if (has_nav_menu('viarent_in_europe_navigation')): ?>
+                    <h6><?= wp_get_nav_menu_name('viarent_in_europe_navigation') ?></h6>
+                    <?php wp_nav_menu(['theme_location' => 'viarent_in_europe_navigation', 'menu_class' => 'niceul']); ?>
+                <?php endif; ?>
+            </div>
+            <div class="siteheader__topbar">
+                <nav class="siteheader__topbar__nav">
+                    <ul class="topbarmenu">
+                        {{> topbarmenu }}
+                    </ul>
+                </nav>
+                <div class="siteheader__topbar__actions"> Tel: <a href="tel:+36(24)502250">+36 (24) 50 22 50</a></div>
+            </div>
+        </nav>
+    </aside>
+</div>
