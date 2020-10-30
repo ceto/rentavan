@@ -1,0 +1,183 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viarent - Lakossági bérlés</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+<body>
+
+<div class="sitemheaderwrap">
+    <aside class="sitemheader">
+        <a class="sitemheader__brand" href="/"><img src="/assets/img/logo.svg" alt="<?= get_bloginfo('name'); ?>"></a>
+        <button class="js-allopen sitemheader__toggler">
+            <?= svginsert('burger'); ?>
+            <span>Menü</span>
+        </button>
+    </aside>
+</div>
+<div class="siteheaderwrap">
+    <aside class="siteheader">
+        <a class="siteheader__brand" href="/"><img src="/assets/img/logo.svg" alt="<?= get_bloginfo('name'); ?>"></a>
+        <nav class="siteheader__nav">
+            <ul class="mainmenu show-for-tablet">
+                <li>
+                    <a href="longterm.html">
+                        Hosszú távú bérlet
+                    </a>
+                </li>
+                <li>
+                    <a href="shortterm.html">
+                        Lakossági bérlés
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Értékesítés
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        Kapcsolat
+                    </a>
+                </li>            </ul>
+            <a class="siteheader__countryselect" type="button" data-toggle="countrysel-dropdown-pane">
+                <svg><use xlink:href="/assets/img/svg-icons.svg#icon-globe"></use></svg>
+                <span>HU</span>
+            </a>
+            <div class="dropdown-pane countrysel-dropdown-pane" id="countrysel-dropdown-pane" data-dropdown data-position="bottom" data-alignment="right" data-hover="true" data-hover-pane="true" data-autofocus="true">
+                <h6>Az oldal nyelve</h6>
+                <ul class="langselmenu">
+                    <li><a href="#">Magyar</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+                <br>
+                <hr class="fulldivider">
+                <br>
+                <?php if (has_nav_menu('viarent_in_europe_navigation')): ?>
+                    <h6><?= wp_get_nav_menu_name('viarent_in_europe_navigation') ?></h6>
+                    <?php wp_nav_menu(['theme_location' => 'viarent_in_europe_navigation', 'menu_class' => 'niceul']); ?>
+                <?php endif; ?>
+            </div>
+            <div class="siteheader__topbar">
+                <nav class="siteheader__topbar__nav">
+                    <ul class="topbarmenu">
+                        <li>
+                            <a href="#">
+                                Rólunk
+                            </a>
+                        </li>
+                        <li>
+                            <a href="styleguide.html">
+                                Style guide
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Franchise
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="siteheader__topbar__actions"> Tel: <a href="tel:+36(24)502250">+36 (24) 50 22 50</a></div>
+            </div>
+        </nav>
+    </aside>
+</div>
+
+<div class="heroslider">
+    <div>
+        <section class="hero afullheight">
+            <figure class="hero__fig">
+                <img src="assets/img/content/homehero-01.jpg" alt="">
+            </figure>
+            <div class="hero__content">
+                <h4>Bútort vettél? Költözni készülsz?</h4>
+                <h3>RENT-A-VAN<br>Furgon gyorsbérlés</h3>
+                <p>Ne várj a szállítókra, csináld magad! A VIARENT segít!</p>
+                <p><a class="button" href="#">Tudj meg többet</a></p>
+            </div>
+        </section>
+    </div>
+</div>
+<footer role="contentinfo" class="sitefooter">
+    <ul class="footerwidgetgrid">
+        <li>
+            <section class="widget widget--footer text-3 widget_text"><h3 class="widget__title">Szigetszentmiklós</h3>
+                <div class="textwidget"><p><strong>2310 Szigetszentmiklós,<br>Leshegy Ipari Park 13.</strong><br>
+                <strong>Telefon: <a href="tel:+36 24 50 22 50">+36 24 50 22 50</a></strong><br>
+                <strong>Fax:&nbsp;<a href="tel:+36 1 358 14 44">+36 24 50 22 33</a></strong><br>
+                <strong>E-mail:&nbsp;<a href="mailto:budapest@viarent.hu">info@viarent.hu</a></strong></p>
+                </div>
+            </section>
+        </li>
+        <li>
+            <section class="widget widget--footer text-2 widget_text"><h3 class="widget__title">Budapest</h3>
+                <div class="textwidget"><p><strong>1097 Budapest, Táblás utca 38.</strong><br>
+            <strong>Telefon: <a href="tel:+36 1 358 14 44">+36 1 358 14 44</a></strong><br>
+            <strong>Fax:&nbsp;<a href="tel:+36 1 358 14 44">+36 24 50 22 33</a></strong><br>
+            <strong>E-mail:&nbsp;<a href="mailto:budapest@viarent.hu">info@viarent.hu</a></strong></p>
+            </div>
+            </section>
+        </li>
+        <li>
+            <section class="widget widget--footer text-4 widget_text"><h3 class="widget__title">Szenc / Senec</h3>
+                <div class="textwidget"><p><strong>Poľná 17, 903 01 Senec, Szlovákia</strong><br>
+            <strong>Telefon: <a href="tel:+421 2 381 1 3673">+421 2 381 1 3673</a></strong><br>
+            <strong>E-mail:&nbsp;<a href="mailto:budapest@viarent.hu">info@viarent.hu</a></strong></p>
+            </div>
+            </section>
+        </li>
+        <li>
+            <section class="widget widget--footer text-5 widget_text"><h3 class="widget__title">Belgrád / Beograd</h3>
+                <div class="textwidget"><p><strong>Sretenjska 4, 11272, Dobanovci,<br>Beograd, Srbija</strong><br>
+            <strong>Telefon: <a href="tel:+381 62 425 888">+381 62 425 888</a></strong><br>
+            <strong>E-mail: <a href="mailto:budapest@viarent.hu">info@viarent.hu</a></strong></p>
+            </div>
+            </section>
+        </li>
+        <!-- <li>
+            <section class="widget widget--footer nav_menu-2 widget_nav_menu"><h3 class="widget__title">Viarent in Europe</h3>
+                <ul id="menu-viarent-in-europe-1" class="menu"><li class="menu-item menu-viarent-magyarorszag-via-berauto-kft"><a href="#"><strong>VIARENT Magyarország</strong> – VIA Bérautó Kft.</a></li>
+                    <li class="menu-item menu-viarent-szlovakia-delta-truck-s-r-o"><a href="#"><strong>VIARENT Szlovákia</strong> – Delta-Truck S.R.O.</a></li>
+                    <li class="active menu-item menu-viarent-szerbia-sdt-renting-d-o-o"><a href="http://viars.vieeye.hu/" aria-current="page"><strong>VIARENT Szerbia</strong> – SDT Renting D.O.O.</a></li>
+                </ul>
+            </section>
+        </li> -->
+    </ul>
+    <div class="sitefooter__bottom">
+        <div class="sitefooter__bottom__zero">
+            <a class="ass" href="tel:+36209208000">
+                <span class="ass__one">MŰSZAKI PROBLÉMA ESETÉN</span>
+                <span class="ass__247"><span>24/7</span></span>
+                <div class="ass__viass">
+                    <span class="ass__viarent">VIARENT</span>
+                    <span class="ass__assistance">ASSISTANCE</span>
+                </div>
+                <span class="ass__phone">06 20 920 8000</span>
+            </a>
+            
+        </div>
+        <div class="sitefooter__bottom__first">
+            <p>&copy; 2020 All rights reserved. VIARENT is a trademark of Viarent Kft.</p>
+            <ul class="footerminimenu">
+                <li><a href="#">Adatkezelési tájékoztató</a></li>
+                <li><a href="#">Jogi nyilatkozat</a></li>
+                <li><a href="#">Sütik kezelése</a></li>
+            </ul>
+            <ul class="sociallist">
+                <li><a target="_blank" href="https://www.facebook.com/viarentmagyarorszag/" class="socialbtn"><svg><use xlink:href="/assets/img/svg-icons.svg#icon-facebook"></use></svg></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/viarent_com/" class="socialbtn"><svg><use xlink:href="/assets/img/svg-icons.svg#icon-instagram"></use></svg></a></li>
+            </ul>
+        </div>
+        <div class="sitefooter__bottom__second">
+            <svg><use xlink:href="/assets/img/svg-icons.svg#icon-logo-mono"></use></svg>
+        </div>
+    </div>
+</footer>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
