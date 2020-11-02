@@ -10,7 +10,6 @@
     padding-bottom: 4rem;
     width: 100%;
 
-    box-shadow: inset .5rem 0 .5rem -.5rem rgba(#000,.5);
 
     @include breakpoint($bp-medium) {
         padding-left: 5%;
@@ -45,7 +44,6 @@
         @include breakpoint($bp-xlarge) {
             margin-left:auto;
             margin-right: auto;
-            box-shadow: none;
             width:100%;
         }
         @include breakpoint(95em) {

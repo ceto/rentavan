@@ -1,18 +1,21 @@
 $global-font-size: 14px;
-$fontsans: 'Raleway', sans-serif;
+$fontsans: 'Rubik', sans-serif;
 $fw-black: 900;
 $fw-semibold: 600;
-$fw-bold: 700;
-$fw-normal: 400;
+$fw-bold: $fw-semibold;
 $fw-light: 300;
+$fw-normal: 400;
+
 
 
 // Colors
 $cl-white: #fefefe;
 $cl-black: #0a0a0a;
 
-$cl-primary: darken(#0bb0ce,7%); 
-$cl-secondary: #005b76;
+$cl-primary: #519eab; // #0bb0ce; //#519eab;
+$cl-primary-light: #71d0e2;
+$cl-secondary: #f17a2b;
+$cl-tertiary: #b6c435;
 $cl-gray: #555555;
 $cl-gray-dark: #323232;
 $cl-gray-xdark: #202020;
@@ -47,7 +50,7 @@ $bp-bigdesktop: 1560px;
 
 $globalsidebarwidth: 10rem;
 $globalsidebarwidth-small: 8rem;
-$globalheaderheight: 4.75rem;
+$globalheaderheight: 4.25rem;
 $globalheaderheight-tablet: 3.875rem;
 $globalheaderheight-small: 3.5rem;
 $bottombarheight: 3rem;

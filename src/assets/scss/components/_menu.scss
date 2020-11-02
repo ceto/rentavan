@@ -189,18 +189,15 @@
     padding: 0;
     list-style: none;
     display: flex;
-    // justify-content: space-between;
     justify-content: flex-end;
 
     width:100%;
-    // margin-left: -.75rem;
     margin-right: -.5em;
     font-size: .875rem;
     text-transform: uppercase;
-    letter-spacing: .025em;
-    //text-align: center;
+    // letter-spacing: .025em;
     line-height: 1.2;
-    font-weight: $fw-black;
+    font-weight: $fw-bold;
 
     @include breakpoint($bp-large) {
         font-size: 1.125rem;

@@ -3,6 +3,9 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: $fw-black;
     line-height: 1.2;
     margin: 0 0 .75rem;
+    span {
+        color:$cl-primary;
+    }
 }
 ul,ol {
     margin:0;
@@ -86,15 +89,15 @@ p.attribution {
 .button {
     display: inline-block;
     margin: 0 0 0.4333rem;
-    padding: 1em 1.25em 1em;
+    padding: .875em 1.25em .875em;
     border-radius: 2em;
-    min-width: 15em;
+    min-width: 13em;
     color: $white;
     background-color: $cl-primary;
     // border-radius: 0.333em;
     text-decoration: none;
     font-weight: $fw-black;
-    letter-spacing: 0.05em;
+    // letter-spacing: 0.05em;
     // text-transform: uppercase;
     line-height: 1.2;
     text-align: center;
@@ -106,6 +109,21 @@ p.attribution {
     &:focus {
         background-color: darken($cl-primary,10%);
         color: #fff;
+    }
+
+    &.secondary {
+        background-color: $cl-secondary;
+        &:hover,
+        &:focus {
+            background-color: darken($cl-secondary, 10%);
+        }
+    }
+    &.tertiary {
+        background-color: $cl-tertiary;
+        &:hover,
+        &:focus {
+            background-color: darken($cl-tertiary, 10%);
+        }
     }
 
     &.hollow {
