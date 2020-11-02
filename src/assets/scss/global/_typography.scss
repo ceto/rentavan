@@ -450,3 +450,22 @@ svg.icon {
     fill: currentColor;
     display: inline-block
 }
+
+
+.rentavan {
+    font-weight: $fw-black;
+    text-transform: uppercase;
+    white-space: nowrap;
+    span {
+        display: block;
+        line-height: 1.075;
+    }
+    .egy {
+        font-size: 1.9375em;
+
+    }
+    .ketto {
+        font-style: italic;
+        letter-spacing: .025em;
+    }
+}

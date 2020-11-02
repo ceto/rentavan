@@ -114,7 +114,7 @@ $hcmaxwidth:60em;
 
         text-transform: uppercase;
         span {
-            color: $cl-primary;
+            color: $cl-secondary;
             text-shadow: 0 0 .25rem rgba(#000,.5);
         }
     }
@@ -143,6 +143,12 @@ $hcmaxwidth:60em;
     .button {
         margin:1.5rem 0 0 0;
         font-size: .875em;
+    }
+
+    .rentavan {
+        margin-bottom: 2rem;
+        color: lighten($cl-primary,40%);
+        text-shadow: 0 0 1.5rem rgba(#000,.5);
     }
 
 }
