@@ -238,6 +238,10 @@ ul.bulletlist {
         color: inherit;
 
     }
+    .primaryvar & {
+        color: $cl-white;
+
+    }
 
     span {
         font-weight: inherit;

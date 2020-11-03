@@ -105,6 +105,9 @@
     &.light {
         background-color: $cl-gray-light;
     }
+    &.primaryvar {
+        background-color: $cl-primary-var;
+    }
     &.white {
         background-color: $white;
     }
