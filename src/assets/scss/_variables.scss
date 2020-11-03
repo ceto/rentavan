@@ -7,7 +7,6 @@ $fw-light: 300;
 $fw-normal: 400;
 
 
-
 // Colors
 $cl-white: #fefefe;
 $cl-black: #0a0a0a;
@@ -17,17 +16,26 @@ $cl-primary-var: #0bb0ce;
 $cl-primary-light: #71d0e2;
 $cl-secondary: #f17a2b;
 $cl-tertiary: #b6c435;
-$cl-gray: #555555;
+$cl-gray: #57585b;
 $cl-gray-dark: #323232;
 $cl-gray-xdark: #202020;
 $cl-gray-avalanchedark: #251F21;
 $cl-gray-xlight: #f4f2f8;
 $cl-gray-light: #ababab;
-$cl-body-font-color: $cl-black;
+$cl-body-font-color: $cl-gray;
 $cl-body-background: $cl-white;
 
 $cl-bglight: #673ab7;
 $cl-bgdark: #482895;
+
+
+//specicolor
+$c-red: #f37e84;
+$c-green: #b5c334;
+$c-blue: #0bafce;
+$c-orange: #f89e1c;
+$c-brown: #c2b59b;
+$c-bronze: #a0887e;
 
 
 // Layout / Grid
