@@ -1,8 +1,11 @@
 <div class="sitemheaderwrap">
     <aside class="sitemheader">
         <a class="sitemheader__brand" href="{{root}}"><img src="{{root}}/assets/img/logo.svg" alt="<?= get_bloginfo('name'); ?>"></a>
+        <a href="{{root}}araink/" class="sitemheader__cta">
+            <span>Ajánlatkérés</span>
+        </a>
         <button class="js-allopen sitemheader__toggler">
-            <?= svginsert('burger'); ?>
+            {{ svginsert "burger" }}
             <span>Menü</span>
         </button>
     </aside>

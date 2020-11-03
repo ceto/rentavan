@@ -1,0 +1,30 @@
+.callpromo {
+    @extend .pagewrap;
+    background-color: darken($c-blue,10%);
+    border-top: 1px solid darken($c-blue,12%);
+    color:$cl-white;
+
+    h3 {
+        text-transform: uppercase;
+        margin:0;
+    }
+    p {
+        font-weight: $fw-bold;
+        font-size: 1.25rem;
+        margin:0;
+    }
+    a {
+        color:$cl-secondary;
+        &:hover, &:focus {
+            text-decoration: underline;
+        }
+    }
+
+
+}
+
+.callpromo__inner {
+    @extend .pagewrap;
+    padding-top:0;
+    padding-bottom:0;
+}

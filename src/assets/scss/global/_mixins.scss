@@ -101,17 +101,17 @@
             // content:'▪';
             content:'';
             display: inline-block;
-            background-image: svg-load('arrow-right.svg', fill=$cl-tertiary);
+            background-image: svg-load('check.svg', fill=$cl-tertiary);
             background-position: center left;
             background-repeat: no-repeat;
             background-size: contain;
 
             font-weight: $fw-bold;
             display: inline-block;
-            width: .75em;
+            width: 1em;
             height: 1.4em;
             float: left;
-            margin-right:.75em;
+            margin-right:.5em;
             margin-left: -1.5em;
             color:$cl-primary;
         }
@@ -121,11 +121,22 @@
         margin-bottom: .5em;
     }
 
+    // &.ingrid {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     gap: 0 rem-calc($layout-gutter-width);
+    //     > li {
+    //         flex-basis: 27em;
+    //         flex-grow: 1;
+    //     }
+    // }
+
     &.ingrid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(27em, 1fr));
         grid-column-gap: rem-calc($layout-gutter-width);
     }
+    
 }
 
 

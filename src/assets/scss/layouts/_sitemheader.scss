@@ -77,11 +77,11 @@
     // justify-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: $cl-primary;
-    color:$cl-gray-xlight;
+    background-color: $cl-gray-xlight;
+    color:$cl-primary;
     border:none;
 
-    // border-right: 1px solid darken($cl-primary,5%);
+    border-left: 1px solid darken($cl-gray-xlight,2.5%);
     min-width:#{$globalheaderheight-small};
     font-size: .66rem;
     height:#{$globalheaderheight-small};
@@ -90,7 +90,7 @@
     text-transform: uppercase;
     outline: none;
     &:hover,&:focus {
-        background-color: darken($cl-primary,5%);
+        background-color: $cl-primary;
         color: $white;
         // box-shadow: 0 2px 0 -1px $cl-primary;
     }
@@ -169,4 +169,12 @@
         text-decoration: none;
         // color:$cl-primary;
     }
+}
+
+
+.sitemheader__cta {
+    @extend .siteheader__cta;
+    padding:.75em 1.5em;
+    // margin-left: auto;
+    // font-size: .75rem;
 }
