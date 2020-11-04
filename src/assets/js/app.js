@@ -15,3 +15,28 @@ require('foundation-sites');
 
 
 $(document).foundation();
+
+
+$('.js-mobilenavpanelopen').on('click', function(e) {
+    e.preventDefault();
+    $('body').addClass('is-frozen');
+    $('body').addClass('mobilenavpanel-is-open');
+});
+
+$('.js-allopen').on('click', function(e) {
+    e.preventDefault();
+    $('body').addClass('is-frozen');
+    $('body').addClass('mobilenavpanel-is-open');
+});
+
+$('.js-mobilenavpanelclose').on('click', function(e) {
+    e.preventDefault();
+    $('body').removeClass('is-frozen');
+    $('body').removeClass('mobilenavpanel-is-open');
+});
+
+$('.js-allclose').on('click', function(e) {
+    e.preventDefault();
+    $('body').removeClass('is-frozen');
+    $('body').removeClass('mobilenavpanel-is-open');
+});

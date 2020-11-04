@@ -72,25 +72,37 @@
 }
 
 .advcard__ill {
+    position: relative;
     margin:0;
     padding: 0;
-    min-width: 4.5em;
-    max-width:10%;
+    min-width: 3.5em;
+    max-width: 3.5em;
+    height:3.5em;
+    background-color: #fff;
 
     border-radius: 50%;
     box-shadow: 0 0 0 .333em $cl-gray-dark;
     box-shadow: 0 0 0 .333em var(--owncolor);
-    transform: translateX(-75%) scale(2);
+    transform: translateX(-100%) scale(2);
     order:-1;
     overflow: hidden;
+    text-align: center;
 
 
     .even & {
         order:2;
-        transform: translateX(75%) scale(2);
+        transform: translateX(100%) scale(2);
     }
 
     img {
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translateX(-50%) translateY(-50%);
+        width:70%;
+        height:70%;
+        object-fit: contain;
+
         // border-radius: 50%;
         // display: block;
         // border:1em solid $cl-gray-dark;

@@ -8,7 +8,7 @@
 
     height:100%;
     width:100vw;
-    border-left: #{$globalsidebarwidth-small} solid $cl-black;
+    border-left: #{$globalsidebarwidth-small} solid $c-blue;
     padding:.75rem 1rem 1.5rem;
     z-index: 999;
     overflow-y: auto;
@@ -24,10 +24,10 @@
 
 }
 
-.offcanvas.sidebar-is-open .mobilenavpanel {
+body.sidebar-is-open .mobilenavpanel {
 }
 
-.offcanvas.mobilenavpanel-is-open .mobilenavpanel {
+body.mobilenavpanel-is-open .mobilenavpanel {
     left:0;
     // opacity: 1;
 }
