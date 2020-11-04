@@ -22625,6 +22625,26 @@ __webpack_require__(/*! foundation-sites */ "./node_modules/foundation-sites/dis
 
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).foundation();
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-mobilenavpanelopen').on('click', function (e) {
+  e.preventDefault();
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('is-frozen');
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('mobilenavpanel-is-open');
+});
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-allopen').on('click', function (e) {
+  e.preventDefault();
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('is-frozen');
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('mobilenavpanel-is-open');
+});
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-mobilenavpanelclose').on('click', function (e) {
+  e.preventDefault();
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('is-frozen');
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('mobilenavpanel-is-open');
+});
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-allclose').on('click', function (e) {
+  e.preventDefault();
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('is-frozen');
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('mobilenavpanel-is-open');
+});
 
 /***/ }),
 
