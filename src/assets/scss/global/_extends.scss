@@ -1,17 +1,21 @@
 .accordion-item {
     &:not(:last-child) {
         border-bottom: 2px solid rgba(#757575,.125);
+        .praccordion & {
+            border-color:$cl-primary;
+        }
+        
     }
     &.is-active {
         border-bottom-color:transparent;
+        .praccordion & {
+            border-bottom-color:transparent;
+        }
     }
 
 }
 .accordion-title {
-    // color: $cl-primary;
     font-weight: $fw-black;
-    // text-transform: uppercase;
-
     &:before {
         position: absolute;
         top:1.125rem;
@@ -44,12 +48,35 @@
             display: none;
         }
     }
+    .praccordion & {
+        font-size:1.5rem;
+        text-transform: uppercase;
+        text-align: center;
+        padding-left: Max(5%, 50% - #{$global-width/5});
+        padding-right: Max(5%, 50% - #{$global-width/5});
+        svg {
+            fill: currentColor;
+            width: 4em;
+            height: 2em;
+        }
+        &:before {
+            top:calc(50% - .75em);
+            width: 1.5em;
+            height: 1.5em;
+    
+        }
+    }
 }
+
+
 
 .accordion-content {
     @extend .accentcopy;
     >*:last-child {
         margin-bottom: 0;
+    }
+    .praccordion & {
+        padding-bottom:3rem;
     }
 }
 

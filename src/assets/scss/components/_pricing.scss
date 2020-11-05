@@ -1,14 +1,16 @@
 .prtbl {
-    @extend .pagewrap;
+    // @extend .pagewrap;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     font-size: .875rem;
     gap: .25em .25em;
+    margin:1rem auto 2rem;
 
     @include breakpoint($bp-large) {
         font-size: 1rem;
         grid-template-columns: 3fr 1fr 1fr 1fr;
     }
+
 }
 .prtbl__rowhead {
     grid-column: 1 / span 3;
@@ -17,6 +19,25 @@
     text-align: center;
     margin-top:2em;
     line-height: 1.2;
+    align-self: center;
+    svg {
+        // display: none;
+        fill:#fff;
+        width: 6em;
+        height: 3em;
+        background-color: $cl-tertiary;
+        border: .5em solid $cl-tertiary;
+        border-radius: .25em;
+        @include breakpoint($bp-large) {
+            border-width: .333em;
+            width: 3.5em;
+            height: 1.75em;
+            float:left;
+            margin-right:.333em;
+        }
+    
+    }
+
     h3 {
         font-size: 1.5em;
         line-height: 1.2;
@@ -25,6 +46,7 @@
     }
     p {
         margin:0;
+        clear: both;
 
     }
     strong {
@@ -38,21 +60,24 @@
     }
 
     &.topheader {
-        display: none;
+        // display: none;
         padding:.25em .125em;
-        font-size: 2em;
+        font-size: 1.75em;
         font-weight: $fw-black;
-        color:$cl-primary;
-        text-transform: uppercase;
+        // color:$cl-secondary;
+        align-self: end;
+        // text-transform: uppercase;
         @include breakpoint($bp-large) {
             display: block;
+            grid-row: 1 / span 2;
         }
     }
 }
 
 .prtbl__price {
-    padding:.75em .25em;
-    background-color: $cl-gray-xlight;
+    padding:1.125em .25em;
+    background-color: $cl-primary;
+    color: $cl-white;
     font-weight: $fw-black;
     font-size: 1.5em;
     line-height: 1.2;
@@ -63,8 +88,9 @@
     align-items: center;
 
     &.topheader {
-        background-color: transparent;
-        border:2px solid $cl-gray-xlight;
+        background-color: $cl-tertiary;
+        border:2px solid $cl-tertiary;
+        // color: $cl-tertiary;
         font-weight: $fw-bold;
         font-style: italic;
         font-size: 1.125em;
@@ -72,6 +98,7 @@
     }
     &.merged {
         // border:none;
+        padding:.75em .25em;
         grid-column: 1 / span 3;
         @include breakpoint($bp-large) {
             grid-column: 2 / span 3;
