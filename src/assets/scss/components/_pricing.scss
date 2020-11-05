@@ -1,0 +1,82 @@
+.prtbl {
+    @extend .pagewrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: .875rem;
+    gap: .25em .25em;
+
+    @include breakpoint($bp-large) {
+        font-size: 1rem;
+        grid-template-columns: 3fr 1fr 1fr 1fr;
+    }
+}
+.prtbl__rowhead {
+    grid-column: 1 / span 3;
+    padding:.75em .25em;
+    font-weight: $fw-bold;
+    text-align: center;
+    margin-top:2em;
+    line-height: 1.2;
+    h3 {
+        font-size: 1.5em;
+        line-height: 1.2;
+        margin:0;
+        text-transform: uppercase;
+    }
+    p {
+        margin:0;
+
+    }
+    strong {
+        font-weight: $fw-black;
+    }
+
+    @include breakpoint($bp-large) {
+        text-align: left;
+        grid-column: 1 / span 1;
+        margin:0;
+    }
+
+    &.topheader {
+        display: none;
+        padding:.25em .125em;
+        font-size: 2em;
+        font-weight: $fw-black;
+        color:$cl-primary;
+        text-transform: uppercase;
+        @include breakpoint($bp-large) {
+            display: block;
+        }
+    }
+}
+
+.prtbl__price {
+    padding:.75em .25em;
+    background-color: $cl-gray-xlight;
+    font-weight: $fw-black;
+    font-size: 1.5em;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.topheader {
+        background-color: transparent;
+        border:2px solid $cl-gray-xlight;
+        font-weight: $fw-bold;
+        font-style: italic;
+        font-size: 1.125em;
+        padding:.5em .25em;
+    }
+    &.merged {
+        // border:none;
+        grid-column: 1 / span 3;
+        @include breakpoint($bp-large) {
+            grid-column: 2 / span 3;
+        }
+    }
+
+}
+
