@@ -150,6 +150,7 @@ $hcmaxwidth:60em;
     p   {
         font-size:1.125em;
         font-weight: $fw-bold;
+        max-width: 29em;
         &:last-child() {
             margin-bottom: 0;
         }
@@ -157,6 +158,7 @@ $hcmaxwidth:60em;
 
     ul {
         @include niceul;
+        max-width: 29em;
         font-size:1.125em;
         font-weight: $fw-bold;
         &:last-child() {
