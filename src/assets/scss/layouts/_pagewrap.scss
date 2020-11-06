@@ -81,6 +81,10 @@
         background-color: $cl-primary;
         color: $cl-white;
     }
+    &.tertiary {
+        background-color: $cl-tertiary;
+        color: $cl-white;
+    }
 
     &.bodybg {
         background-color: $cl-body-background;
