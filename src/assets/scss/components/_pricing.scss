@@ -4,7 +4,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     font-size: .875rem;
     gap: .25em .25em;
-    margin:1rem auto 2rem;
+    margin:1rem auto 4rem;
 
     @include breakpoint($bp-large) {
         font-size: 1rem;

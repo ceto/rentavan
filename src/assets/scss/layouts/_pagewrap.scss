@@ -102,6 +102,11 @@
     &.xlight {
         background-color: $cl-gray-xlight;
     }
+    &.xlighttowhite {
+        background-color: #fff;
+        background-image: linear-gradient(180deg, $cl-gray-xlight 0, #fff 100%);
+
+    }
     &.light {
         background-color: $cl-gray-light;
     }
@@ -128,6 +133,23 @@
         // padding-right: 7.5%;
     }
 }
+.pagewrapimage {
+    position: relative;
+    height: 40vw;
+    max-height: 30rem;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    img {
+        position: absolute;
+        height:100%;
+        max-width: none;
+        left:50%;
+        right:50%;
+        transform: translateX(-50%);
+    }
+}
+
 
 .pagewrap__bg {
     background-color: inherit;

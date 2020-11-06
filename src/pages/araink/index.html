@@ -1,9 +1,6 @@
 <div class="pagewrap">
     <h1 class="sectitle text-center ">Rövid távú bérleti tarifatáblázat</h1>
     <h4 class="text-center">Furgonok már napi 7 900 Ft-tól</h4>
-    <div class="text-center" data-magellan>
-        <a href="#ajanlatkeres" class="button large secondary">Ugrás az ajánlatkérésre</a>
-    </div>
     <div class="pagewrap">
     <ul class="accordion praccordion" data-accordion data-allow-all-closed="true" data-multi-expand="true">
         <li class="accordion-item is-active" data-accordion-item>
@@ -11,7 +8,7 @@
             <div class="accordion-content" data-tab-content>
                 {{> prtbl-1}}
                 <div class="text-center" data-magellan>
-                    <a href="#ajanlatkeres" class="button large secondary">Ajánlatkérés</a>
+                    <a href="{{root}}ajanlatkeres/" class="button large secondary">Ajánlatot kérek</a>
                 </div>
             </div>
         </li>
@@ -20,7 +17,7 @@
             <div class="accordion-content" data-tab-content>
                 {{> prtbl-2}}
                 <div class="text-center" data-magellan>
-                    <a href="#ajanlatkeres" class="button large secondary">Ajánlatkérés</a>
+                    <a href="{{root}}ajanlatkeres/" class="button large secondary">Ajánlatot kérek</a>
                 </div>
             </div>
         </li>
@@ -29,10 +26,4 @@
 
 
 </div>
-<div id="ajanlatkeres" class="pagewrap primaryvar" data-magellan-target="ajanlatkeres">
-        <div class="pagewrap">
-            <h2 class="sectitle text-center">Ajánlatkérés</h2>
-            <br>    
-            {{>requestform}}
-        </div>
-</div>
+
