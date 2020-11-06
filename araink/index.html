@@ -14,7 +14,7 @@
 <div class="sitemheaderwrap" data-magellan>
     <aside class="sitemheader">
         <a class="sitemheader__brand" href="../"><img src="..//assets/img/logo.svg" alt="<?= get_bloginfo('name'); ?>"></a>
-        <a href="../araink/#ajanlatkeres" class="sitemheader__cta">
+        <a href="../ajanlatkeres/" class="sitemheader__cta">
             <span>Ajánlatkérés</span>
         </a>
         <button class="js-allopen sitemheader__toggler">
@@ -67,7 +67,7 @@
                 <div class="siteheader__topbar__actions"> Tel: <a href="tel:+3624502250">+36 (24) 50 22 50</a></div>
             </div>
         </nav>
-        <a href="../araink/#ajanlatkeres" class="siteheader__cta">
+        <a href="../ajanlatkeres/" class="siteheader__cta">
             <span>Ajánlatkérés</span>
         </a>
     </aside>
@@ -76,9 +76,6 @@
 <div class="pagewrap">
     <h1 class="sectitle text-center ">Rövid távú bérleti tarifatáblázat</h1>
     <h4 class="text-center">Furgonok már napi 7 900 Ft-tól</h4>
-    <div class="text-center" data-magellan>
-        <a href="#ajanlatkeres" class="button large secondary">Ugrás az ajánlatkérésre</a>
-    </div>
     <div class="pagewrap">
     <ul class="accordion praccordion" data-accordion data-allow-all-closed="true" data-multi-expand="true">
         <li class="accordion-item is-active" data-accordion-item>
@@ -142,7 +139,7 @@
                     <div class="prtbl__price">21 990 Ft</div>
                     <div class="prtbl__price">15 990 Ft</div>
                 </div>                <div class="text-center" data-magellan>
-                    <a href="#ajanlatkeres" class="button large secondary">Ajánlatkérés</a>
+                    <a href="../ajanlatkeres/" class="button large secondary">Ajánlatot kérek</a>
                 </div>
             </div>
         </li>
@@ -186,7 +183,7 @@
                     <div class="prtbl__price">21 990 Ft</div>
                     <div class="prtbl__price">15 990 Ft</div>
                 </div>                <div class="text-center" data-magellan>
-                    <a href="#ajanlatkeres" class="button large secondary">Ajánlatkérés</a>
+                    <a href="../ajanlatkeres/" class="button large secondary">Ajánlatot kérek</a>
                 </div>
             </div>
         </li>
@@ -195,147 +192,7 @@
 
 
 </div>
-<div id="ajanlatkeres" class="pagewrap primaryvar" data-magellan-target="ajanlatkeres">
-        <div class="pagewrap">
-            <h2 class="sectitle text-center">Ajánlatkérés</h2>
-            <br>    
-            <form id="reqform" class="viaform reqform" method="post" action="#" data-abide novalidate>
-                <div class="formstep">    
-                    <ul class="inputgrid wider">
-                        <li>
-                            <h3 class="formstep__title">Személyes adatok</h3>
-                            <ul class="inputgrid">
-                                <li>
-                                    <label><input type="text" placeholder="Név" required name="r_name"></label>
-                                </li>
-                                <li>
-                                    <label><input type="email" placeholder="E-mail cím" pattern="email" required name="r_email"></label>
-                                </li>
-                                <li>
-                                    <label><input type="text" placeholder="Telefonszám" required name="r_tel"></label>
-                                </li>
-                                <li>
-                                    <label><input type="text" placeholder="Cégnév" name="r_company"></label>
-                                </li>
-                                <li class="double">
-                                    <label><input type="text" placeholder="Cím" name="r_address"></label>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h3 class="formstep__title">Egyéb üzenet</h3>
-                            <ul class="inputgrid">
-                                <li>
-                                    <label><textarea rows="5" placeholder="Egyéb üzenet" name="r_message"></textarea></label>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="formstep">
-                    <h3 class="formstep__title">Válassza ki a bérelni kívánt járművet!*</h3>
-                    <ul class="checkergrid">
-                        <li>
-                            <label class="checkboxlabel" for="r_vehicle1">
-                                <input id="r_vehicle1" type="checkbox" name="r_vehicle[]" value="Furgon">
-                                Furgon
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkboxlabel" for="r_vehicle2">
-                                <input id="r_vehicle2" type="checkbox" name="r_vehicle[]" value="Elektromos furgon">
-                                Elektromos furgon
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkboxlabel" for="r_vehicl3">
-                                <input id="r_vehicle3" type="checkbox" name="r_vehicle[]" value="Kisteherautó" required>
-                                Kisteherautó
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkboxlabel" for="r_vehicle4">
-                                <input id="r_vehicle4" type="checkbox" name="r_vehicle[]" value="Tehergépkocsi 35-45m<sup>2</sup>">
-                                Tehergépkocsi 35-45m<sup>2</sup>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkboxlabel" for="r_vehicle5">
-                                <input id="r_vehicle5" type="checkbox" name="r_vehicle[]" value="Tehergépkocsi &gt;45m<sup>2</sup>">
-                                Tehergépkocsi &gt;45m<sup>2</sup>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkboxlabel" for="r_vehicle6">
-                                <input id="r_vehicle6" type="checkbox" name="r_vehicle[]" value="Hűtős furgon" required>
-                                Hűtős furgon
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkboxlabel" for="r_vehicle7">
-                                <input id="r_vehicle7" type="checkbox" name="r_vehicle[]" value="Hűtős kisteherautó">
-                                Hűtős kisteherautó
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkboxlabel" for="r_vehicle8">
-                                <input id="r_vehicle8" type="checkbox" name="r_vehicle[]" value="Hűtős tehergépkocsi">
-                                Hűtős tehergépkocsi
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            
-                <div class="formstep">
-                    <h3 class="formstep__title">Mennyi időre szeretné bérelni?*</h3>
-                    <ul class="checkergrid">
-                        <li>
-                            <label class="checkboxlabel" for="r_time1">
-                                <input id="r_time1" type="checkbox" name="r_time[]" value="1-30 nap">
-                                1-30 nap
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkboxlabel" for="r_time2">
-                                <input id="r_time2" type="checkbox" name="r_time[]" value="1-3 hónap" required>
-                                1-3 hónap
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkboxlabel" for="r_time3">
-                                <input id="r_time3" type="checkbox" name="r_time[]" value="4-12 hónap">
-                                4-12 hónap
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkboxlabel" for="r_time5">
-                                <input id="r_time5" type="checkbox" name="r_time[]" value="Több mint egy év" required>
-                                Több mint egy év
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="formstep">
-                            <label class="checkboxlabel small" for="r_acceptgdpr">
-                                <input id="r_acceptgdpr" type="checkbox" name="r_acceptgdpr" required>
-                                Az ajánlatkérő adatlap kitöltésével elfogadom az <a href="#">adatkezelési tájékoztatóban</a> foglaltakat.
-                            </label>
-                            <label class="checkboxlabel small" for="r_acceptmarketing">
-                                <input id="r_acceptmarketing" type="checkbox" name="r_acceptmarketing">
-                                Hozzájárulok a kereskedelmi és marketing célú megkereséseknek
-                            </label>
-                </div>
-                <input type="hidden" name="r_pageurl" value="<?= home_url( add_query_arg( array(), $wp->request ) ); ?>">
-                <input type="hidden" name="r_human" value="2">
-            
-                <div class="formactions">
-                    <button id="reqformsubmit" class="button secondary large reqformsubmit" type="submit" data-progresstext="Küldés folyamatban" data-sendtext="Ajánlatkérés elküldése">
-                        Ajánlatkérés elküldése
-                    </button>
-                </div>
-                <div id="reqformresult" class="formresults reqformresult"></div>
-              </form>        </div>
-</div>
+
 
 
 <section class="callpromo">
