@@ -13,27 +13,64 @@
 
 }
 .prtbl__rowhead {
+    position: relative;
     grid-column: 1 / span 3;
-    padding:.75em .25em;
+    padding:1em 1.25em;
     font-weight: $fw-bold;
     text-align: center;
     margin-top:2em;
     line-height: 1.2;
-    align-self: center;
+    //align-self: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    background-color: $cl-white;
+
+    justify-content: center;
+
+    @include breakpoint($bp-large) {
+        text-align: left;
+        grid-column: 1 / span 1;
+        margin:0;
+        align-items: flex-start;
+    }
+
+    &:hover {
+        background-color: $cl-gray-xlight;
+        & +.prtbl__price {
+            
+            background-color: $cl-secondary;
+            & +.prtbl__price {
+                background-color: $cl-secondary;
+                & +.prtbl__price {
+                    background-color: $cl-secondary;
+                }
+            }
+        }
+    }
+
     svg {
         // display: none;
         fill:#fff;
         width: 6em;
         height: 3em;
-        background-color: $cl-tertiary;
-        border: .5em solid $cl-tertiary;
+        background-color: $cl-secondary;
+        border: .5em solid $cl-secondary;
         border-radius: .25em;
+        margin-bottom: .5em;
         @include breakpoint($bp-large) {
             border-width: .333em;
             width: 3.5em;
             height: 1.75em;
-            float:left;
-            margin-right:.333em;
+            position: absolute;
+            top:.875em;
+            margin:0;
+
+            + h3 {
+                margin-left: 2.666em;
+            }
+
         }
     
     }
@@ -43,7 +80,13 @@
         line-height: 1.2;
         margin:0;
         text-transform: uppercase;
+        // @include breakpoint($bp-large) {
+
+        //     margin-left: 2.666em;
+        // }
     }
+
+
     p {
         margin:0;
         clear: both;
@@ -53,20 +96,16 @@
         font-weight: $fw-black;
     }
 
-    @include breakpoint($bp-large) {
-        text-align: left;
-        grid-column: 1 / span 1;
-        margin:0;
-    }
 
     &.topheader {
         // display: none;
-        padding:.25em .125em;
+        padding:.25em .875em;
         font-size: 1.75em;
         font-weight: $fw-black;
         // color:$cl-secondary;
-        align-self: end;
+        align-self: center;
         // text-transform: uppercase;
+        background-color: transparent;
         @include breakpoint($bp-large) {
             display: block;
             grid-row: 1 / span 2;
@@ -88,7 +127,7 @@
     align-items: center;
 
     &.topheader {
-        background-color: $cl-tertiary;
+        background-color: $cl-tertiary !important;
         border:2px solid $cl-tertiary;
         // color: $cl-tertiary;
         font-weight: $fw-bold;
