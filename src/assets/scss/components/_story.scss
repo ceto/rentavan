@@ -30,18 +30,26 @@
     box-shadow: 0 .5rem 1rem -.5rem rgba(#000,.5);
 
     font-size: .875rem;
-    margin-top: 8em;
+    margin-top: 10em;
 
     @include breakpoint($bp-tablet) {
         font-size: 1rem;
         margin-top:0;
+        margin-left:calc(50% + 5em);
+    }
+
+    &.even {
+        @include breakpoint($bp-tablet) {
+            margin-right: calc(50% + 5em);
+            margin-left: 0%;
+        }
     }
 
 }
 
 .storypin {
     position: absolute;
-    left: calc(55% - 3.5em);
+    left: calc(50% - 3.5em);
     top: -8em;
     width: 7em;
     height: 7em;
@@ -70,6 +78,7 @@
 }
 
 .storycard__content {
+    margin-right:7.5%;
     h3{
         color: var(--owncolor);
         line-height: 1.2;
@@ -88,15 +97,26 @@
         line-height: 1.4;
         margin:0;
     }
+
+    @include breakpoint($bp-tablet) {
+        // margin-right: 0;
+        // margin-left:2.5%;
+        .even & {
+            margin-right: 0%;
+            margin-left: 7.55%;
+        }
+    }
 }
 
+
+
 .storycard__ill {
-    position: relative;
+    position: absolute;
+    right:-3em;
     margin:0;
     padding: 0;
-    min-width: 3em;
-    max-width: 3em;
-    height:3em;
+    width:6em;
+    height:6em;
     background-color: #fff;
 
     border-radius: 50%;
@@ -104,20 +124,20 @@
     border-color: var(--owncolor);
     border-style: solid;
     border-width: .5px;
-    order:2;
-    transform: translateX(100%) scale(2);
+    // order:2;
+    // transform: translateX(150%) scale(2);
 
     overflow: hidden;
     text-align: center;
 
 
-        
-
-
     .even & {
+
         @include breakpoint($bp-tablet) {
-            transform: translateX(-100%) scale(2);
-            order:-1;
+            right:auto;
+            left:-3em;
+            // transform: translateX(-150%) scale(2);
+            // order:-1;
         }
     }
 
@@ -137,23 +157,64 @@
 
 }
 
+
+.storycard__giccs {
+    display:none;
+    position: absolute;
+    padding:0;
+    margin:0;
+    padding: 0;
+    width:100%;
+    height:100%;
+    right: calc( 100% + 10em);
+
+
+    @include breakpoint($bp-tablet) {
+        display: block;
+    }
+
+
+    .even & {
+
+        @include breakpoint($bp-tablet) {
+            left: calc( 100% + 10em);
+            right:auto;
+        }
+    }
+
+    img {
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translateX(-50%) translateY(-50%);
+        width:100%;
+        height:100%;
+        object-fit: contain;
+
+        // border-radius: 50%;
+        // display: block;
+        // border:1em solid $cl-gray-dark;
+    }
+
+}
+
 .storycardgrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem-calc($layout-gutter-width);
     position: relative;
     list-style: none;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-    display: block;
     counter-reset: storycounter;
-    @include clearfix();
-
     
     &:before {
         content:'';
         position: absolute;
         display: block;
         left:calc(50% - .75rem);
-        top:3.5em;
-        bottom:3.5em;
+        top:4.5em;
+        bottom:4.5em;
         width:1.5rem;
         background-color: $cl-primary;
         background-image: linear-gradient(180deg, rgba($body-font-color,1) 0, rgba($body-font-color,0) 50% );
@@ -170,25 +231,11 @@
         counter-increment: storycounter;
         display: block;
         margin:0;
-        padding: rem-calc($layout-gutter-width) 10% rem-calc($layout-gutter-width) 0;
+        padding: 0;
         
-        &:nth-child(2n) {
-            // padding: rem-calc($layout-gutter-width) 12% rem-calc($layout-gutter-width) 0;
-            @include breakpoint($bp-tablet) {
-                // padding: rem-calc($layout-gutter-width) 12% rem-calc($layout-gutter-width) 0;
-            }
-
-        }
         @include breakpoint($bp-tablet) {
-            padding: rem-calc($layout-gutter-width*0.5) 0;
-            width: calc(50% - #{rem-calc($layout-gutter-width*4)}) ;
-            float: left;
-            clear: both;
             
-            &:nth-child(2n) {
-                float:right;
-                padding: rem-calc($layout-gutter-width*0.5) 0;
-            }                     
+            // width: calc(50% - #{rem-calc($layout-gutter-width*4)}) ;                   
         }
     }
 }
