@@ -473,3 +473,10 @@ svg.icon {
         letter-spacing: .025em;
     }
 }
+
+.ishape {
+    text-transform: uppercase;
+    font-weight: $fw-bold;
+    transform: rotate(90deg) scaleX(1.333) translateX(-.05666em) translateY(-.025em);
+    display: inline-block;
+}

@@ -18,33 +18,67 @@
     border-color: $cl-gray-light;
     border-color: var(--owncolor);
     background-color: $cl-body-background;
+    color:$body-font-color;
 
-    // color: #fff;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     padding:5% 5% 5%;
     border-radius: 1em;
-    min-height: 10rem;
+    min-height: 12em;
     margin:0 auto;
     box-shadow: 0 .5rem 1rem -.5rem rgba(#000,.5);
 
     font-size: .875rem;
+    margin-top: 8em;
 
-    @include breakpoint($bp-large) {
+    @include breakpoint($bp-tablet) {
         font-size: 1rem;
+        margin-top:0;
     }
 
 }
 
+.storypin {
+    position: absolute;
+    left: calc(55% - 3.5em);
+    top: -8em;
+    width: 7em;
+    height: 7em;
+    background-color: $cl-gray-xlight;
+    padding:1em;
+    border-radius: 50%;
+    border-color: $cl-gray-dark;
+    border-color: var(--owncolor);
+    border-style: solid;
+    border-width: .25em;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    @include breakpoint($bp-tablet) {
+        top: calc(50% - 3.5em);
+        left: auto;
+        right: -8.5em;
+
+        .odd & {
+            right: auto;
+            left: -8.5em;
+        }
+    }
+}
+
 .storycard__content {
-    // flex-basis: 85%;
     h3{
         color: var(--owncolor);
         line-height: 1.2;
         font-size: 1.333em;
         margin: 0 0 .125em 0;
         text-transform: uppercase;
+        &:before {
+            content: counter(storycounter) ". ";
+        }
 
     }
 
@@ -77,9 +111,14 @@
     text-align: center;
 
 
+        
+
+
     .even & {
-        transform: translateX(-100%) scale(2);
-        order:-1;
+        @include breakpoint($bp-tablet) {
+            transform: translateX(-100%) scale(2);
+            order:-1;
+        }
     }
 
     img {
@@ -99,32 +138,57 @@
 }
 
 .storycardgrid {
+    position: relative;
     list-style: none;
     margin: 0 0 0 0;
-    padding: 0;
+    padding: 0 0 0 0;
     display: block;
+    counter-reset: storycounter;
     @include clearfix();
 
+    
+    &:before {
+        content:'';
+        position: absolute;
+        display: block;
+        left:calc(50% - .75rem);
+        top:3.5em;
+        bottom:3.5em;
+        width:1.5rem;
+        background-color: $cl-primary;
+        background-image: linear-gradient(180deg, rgba($body-font-color,1) 0, rgba($body-font-color,0) 50% );
+    }
+    @include breakpoint($bp-tablet) {
+        // padding-left: 0;
+        &::before {
+            left:calc(50% - 1.5rem);
+            width:3rem;
+        }
+    }
+
     > li {
+        counter-increment: storycounter;
         display: block;
         margin:0;
-        padding: rem-calc($layout-gutter-width) 0 rem-calc($layout-gutter-width) 12%;
+        padding: rem-calc($layout-gutter-width) 10% rem-calc($layout-gutter-width) 0;
+        
         &:nth-child(2n) {
-            padding: rem-calc($layout-gutter-width) 12% rem-calc($layout-gutter-width) 0;
+            // padding: rem-calc($layout-gutter-width) 12% rem-calc($layout-gutter-width) 0;
+            @include breakpoint($bp-tablet) {
+                // padding: rem-calc($layout-gutter-width) 12% rem-calc($layout-gutter-width) 0;
+            }
 
         }
-        @include breakpoint($bp-large) {
-            padding: rem-calc($layout-gutter-width*1.5) 0;
+        @include breakpoint($bp-tablet) {
+            padding: rem-calc($layout-gutter-width*0.5) 0;
             width: calc(50% - #{rem-calc($layout-gutter-width*4)}) ;
             float: left;
+            clear: both;
             
             &:nth-child(2n) {
                 float:right;
-                padding: rem-calc($layout-gutter-width*1.5) 0;
-            }
-            &:nth-child(2) {
-                margin-top: rem-calc($layout-gutter-width*6);
-            }                        
+                padding: rem-calc($layout-gutter-width*0.5) 0;
+            }                     
         }
     }
 }
