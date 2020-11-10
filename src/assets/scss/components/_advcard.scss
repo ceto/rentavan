@@ -65,9 +65,13 @@
 
     }
 
-    p {
+    ul, p {
         clear: both;
-        font-size: 0.9375rem;
+        font-size: 1em;
+        font-weight: $fw-medium;
+    }
+    strong {
+        font-weight: $fw-bold;
     }
 }
 
