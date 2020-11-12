@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -14,7 +13,7 @@
 <div class="sitemheaderwrap" data-magellan>
     <aside class="sitemheader">
         <a class="sitemheader__brand" href="../"><img src="..//assets/img/logo.svg" alt="<?= get_bloginfo('name'); ?>"></a>
-        <a href="../ajanlatkeres/" class="sitemheader__cta">
+        <a href="../#ajanlatkeres" class="sitemheader__cta">
             <span>Ajánlatkérés</span>
         </a>
         <button class="js-allopen sitemheader__toggler">
@@ -29,29 +28,34 @@
         <nav class="siteheader__nav">
             <ul class="mainmenu show-for-tablet">
                 <li>
-                    <a href="../gyorsberlesrol/">
+                    <a href="../#about">
                         Mi a gyorsbérlés?
                     </a>
                 </li>
                 <li>
-                    <a href="../araink/">
+                    <a href="../#araink">
                         Áraink
                     </a>
                 </li>
                 <li>
-                    <a href="../ceges-ajanlat/">
-                        Céges ajánlat
+                    <a href="../#gyik">
+                        Gyakori kérdések
+                    </a>
+                </li>
+                <li>
+                    <a class="external" href="http://viars.vieeye.hu/">
+                        Vállalatok részére
                     </a>
                 </li>
             </ul>
             <div class="siteheader__topbar">
                 <nav class="siteheader__topbar__nav">
                     <ul class="topbarmenu">
-                        <li>
+                        <!-- <li>
                             <a href="../kisokos/">
                                 Útmutató költözéshez
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="#">
                                 HU
@@ -67,13 +71,13 @@
                 <div class="siteheader__topbar__actions"> Tel: <a href="tel:+3624502250">+36 (24) 50 22 50</a></div>
             </div>
         </nav>
-        <a href="../ajanlatkeres/" class="siteheader__cta">
+        <a href="../#ajanlatkeres" class="siteheader__cta">
             <span>Ajánlatkérés</span>
         </a>
     </aside>
 </div>
 
-<section class="hero colored">
+<section class="hero colored" data-magellan>
     <figure class="hero__fig nomask floating">
         <img src="../assets/img/content/illust02.svg" alt="">
     </figure>
@@ -81,9 +85,10 @@
         <div class="rentavan"><span class="egy">RENT-A-VAN</span><span class="ketto">Furgon gyorsbérlés</span></div>
         <h3>Hogyan rakodjuk meg a költöztető autót?</h3>
         <h4>Étékek, iratok, nehéz tárgyak, ágy heverő és matracok. Útmutónkban megmutatjuk a költöztető teherautó helyes rakodását.</h4>
-        <p><a class="button secondary" href="#">Tovább a részletekre</a></p>
+        <p><a class="button secondary" href="#details">Mutasd a részleteket</a></p>
     </div>
 </section>
+<div id="details" data-magelan-target="details">
 <div class="callpromo tertiary">
     <div class="callpromo__inner">
         <img src="../assets/img/content/H-zero.svg" alt="">
@@ -216,7 +221,12 @@
                 </div>
             </li>
         </ul>
+        <br><br><br>
+        <div class="text-center" data-magellan>
+            <a href="../" class="button large secondary">Ugrás ide: Lakossági bérleti ajánlat</a>
+        </div>
     </div>
+</div>
 </div>
 
 <section class="callpromo">
@@ -231,7 +241,7 @@
     </div>
 </section>
 <footer role="contentinfo" class="sitefooter">
-    <!-- <ul class="footerwidgetgrid">
+    <ul class="footerwidgetgrid">
         <li>
             <section class="widget widget--footer text-3 widget_text"><h3 class="widget__title">Szigetszentmiklós</h3>
                 <div class="textwidget"><p><strong>2310 Szigetszentmiklós,<br>Leshegy Ipari Park 13.</strong><br>
@@ -266,7 +276,7 @@
             </div>
             </section>
         </li>
-    </ul> -->
+    </ul>
     <div class="sitefooter__bottom">
         <div class="sitefooter__bottom__zero">
             <a class="ass" href="tel:+36209208000">
@@ -300,28 +310,33 @@
 <aside class="mobilenavpanel">
     <ul class="mobilemenu">
         <li>
-            <a href="../gyorsberlesrol/">
+            <a href="../#about">
                 Mi a gyorsbérlés?
             </a>
         </li>
         <li>
-            <a href="../araink/">
+            <a href="../#araink">
                 Áraink
             </a>
         </li>
         <li>
-            <a href="../ceges-ajanlat/">
-                Céges ajánlat
+            <a href="../#gyik">
+                Gyakori kérdések
+            </a>
+        </li>
+        <li>
+            <a class="external" href="http://viars.vieeye.hu/">
+                Vállalatok részére
             </a>
         </li>
     </ul>
     <br>
     <ul class="mobilesecmenu">
-        <li>
+        <!-- <li>
             <a href="../kisokos/">
                 Útmutató költözéshez
             </a>
-        </li>
+        </li> -->
         <li>
             <a href="#">
                 HU

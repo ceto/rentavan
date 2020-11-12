@@ -12546,6 +12546,413 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 
 /***/ }),
 
+/***/ "./node_modules/headroom.js/dist/headroom.js":
+/*!***************************************************!*\
+  !*** ./node_modules/headroom.js/dist/headroom.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+/*!
+ * headroom.js v0.12.0 - Give your page some headroom. Hide your header until you need it
+ * Copyright (c) 2020 Nick Williams - http://wicky.nillia.ms/headroom.js
+ * License: MIT
+ */
+(function (global, factory) {
+  ( false ? undefined : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory() :  true ? !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : (undefined);
+})(this, function () {
+  'use strict';
+
+  function isBrowser() {
+    return typeof window !== "undefined";
+  }
+  /**
+   * Used to detect browser support for adding an event listener with options
+   * Credit: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+   */
+
+
+  function passiveEventsSupported() {
+    var supported = false;
+
+    try {
+      var options = {
+        // eslint-disable-next-line getter-return
+        get passive() {
+          supported = true;
+        }
+
+      };
+      window.addEventListener("test", options, options);
+      window.removeEventListener("test", options, options);
+    } catch (err) {
+      supported = false;
+    }
+
+    return supported;
+  }
+
+  function isSupported() {
+    return !!(isBrowser() && function () {}.bind && "classList" in document.documentElement && Object.assign && Object.keys && requestAnimationFrame);
+  }
+
+  function isDocument(obj) {
+    return obj.nodeType === 9; // Node.DOCUMENT_NODE === 9
+  }
+
+  function isWindow(obj) {
+    // `obj === window` or `obj instanceof Window` is not sufficient,
+    // as the obj may be the window of an iframe.
+    return obj && obj.document && isDocument(obj.document);
+  }
+
+  function windowScroller(win) {
+    var doc = win.document;
+    var body = doc.body;
+    var html = doc.documentElement;
+    return {
+      /**
+       * @see http://james.padolsey.com/javascript/get-document-height-cross-browser/
+       * @return {Number} the scroll height of the document in pixels
+       */
+      scrollHeight: function scrollHeight() {
+        return Math.max(body.scrollHeight, html.scrollHeight, body.offsetHeight, html.offsetHeight, body.clientHeight, html.clientHeight);
+      },
+
+      /**
+       * @see http://andylangton.co.uk/blog/development/get-viewport-size-width-and-height-javascript
+       * @return {Number} the height of the viewport in pixels
+       */
+      height: function height() {
+        return win.innerHeight || html.clientHeight || body.clientHeight;
+      },
+
+      /**
+       * Gets the Y scroll position
+       * @return {Number} pixels the page has scrolled along the Y-axis
+       */
+      scrollY: function scrollY() {
+        if (win.pageYOffset !== undefined) {
+          return win.pageYOffset;
+        }
+
+        return (html || body.parentNode || body).scrollTop;
+      }
+    };
+  }
+
+  function elementScroller(element) {
+    return {
+      /**
+       * @return {Number} the scroll height of the element in pixels
+       */
+      scrollHeight: function scrollHeight() {
+        return Math.max(element.scrollHeight, element.offsetHeight, element.clientHeight);
+      },
+
+      /**
+       * @return {Number} the height of the element in pixels
+       */
+      height: function height() {
+        return Math.max(element.offsetHeight, element.clientHeight);
+      },
+
+      /**
+       * Gets the Y scroll position
+       * @return {Number} pixels the element has scrolled along the Y-axis
+       */
+      scrollY: function scrollY() {
+        return element.scrollTop;
+      }
+    };
+  }
+
+  function createScroller(element) {
+    return isWindow(element) ? windowScroller(element) : elementScroller(element);
+  }
+  /**
+   * @param element EventTarget
+   */
+
+
+  function trackScroll(element, options, callback) {
+    var isPassiveSupported = passiveEventsSupported();
+    var rafId;
+    var scrolled = false;
+    var scroller = createScroller(element);
+    var lastScrollY = scroller.scrollY();
+    var details = {};
+
+    function update() {
+      var scrollY = Math.round(scroller.scrollY());
+      var height = scroller.height();
+      var scrollHeight = scroller.scrollHeight(); // reuse object for less memory churn
+
+      details.scrollY = scrollY;
+      details.lastScrollY = lastScrollY;
+      details.direction = scrollY > lastScrollY ? "down" : "up";
+      details.distance = Math.abs(scrollY - lastScrollY);
+      details.isOutOfBounds = scrollY < 0 || scrollY + height > scrollHeight;
+      details.top = scrollY <= options.offset[details.direction];
+      details.bottom = scrollY + height >= scrollHeight;
+      details.toleranceExceeded = details.distance > options.tolerance[details.direction];
+      callback(details);
+      lastScrollY = scrollY;
+      scrolled = false;
+    }
+
+    function handleScroll() {
+      if (!scrolled) {
+        scrolled = true;
+        rafId = requestAnimationFrame(update);
+      }
+    }
+
+    var eventOptions = isPassiveSupported ? {
+      passive: true,
+      capture: false
+    } : false;
+    element.addEventListener("scroll", handleScroll, eventOptions);
+    update();
+    return {
+      destroy: function destroy() {
+        cancelAnimationFrame(rafId);
+        element.removeEventListener("scroll", handleScroll, eventOptions);
+      }
+    };
+  }
+
+  function normalizeUpDown(t) {
+    return t === Object(t) ? t : {
+      down: t,
+      up: t
+    };
+  }
+  /**
+   * UI enhancement for fixed headers.
+   * Hides header when scrolling down
+   * Shows header when scrolling up
+   * @constructor
+   * @param {DOMElement} elem the header element
+   * @param {Object} options options for the widget
+   */
+
+
+  function Headroom(elem, options) {
+    options = options || {};
+    Object.assign(this, Headroom.options, options);
+    this.classes = Object.assign({}, Headroom.options.classes, options.classes);
+    this.elem = elem;
+    this.tolerance = normalizeUpDown(this.tolerance);
+    this.offset = normalizeUpDown(this.offset);
+    this.initialised = false;
+    this.frozen = false;
+  }
+
+  Headroom.prototype = {
+    constructor: Headroom,
+
+    /**
+     * Start listening to scrolling
+     * @public
+     */
+    init: function init() {
+      if (Headroom.cutsTheMustard && !this.initialised) {
+        this.addClass("initial");
+        this.initialised = true; // defer event registration to handle browser
+        // potentially restoring previous scroll position
+
+        setTimeout(function (self) {
+          self.scrollTracker = trackScroll(self.scroller, {
+            offset: self.offset,
+            tolerance: self.tolerance
+          }, self.update.bind(self));
+        }, 100, this);
+      }
+
+      return this;
+    },
+
+    /**
+     * Destroy the widget, clearing up after itself
+     * @public
+     */
+    destroy: function destroy() {
+      this.initialised = false;
+      Object.keys(this.classes).forEach(this.removeClass, this);
+      this.scrollTracker.destroy();
+    },
+
+    /**
+     * Unpin the element
+     * @public
+     */
+    unpin: function unpin() {
+      if (this.hasClass("pinned") || !this.hasClass("unpinned")) {
+        this.addClass("unpinned");
+        this.removeClass("pinned");
+
+        if (this.onUnpin) {
+          this.onUnpin.call(this);
+        }
+      }
+    },
+
+    /**
+     * Pin the element
+     * @public
+     */
+    pin: function pin() {
+      if (this.hasClass("unpinned")) {
+        this.addClass("pinned");
+        this.removeClass("unpinned");
+
+        if (this.onPin) {
+          this.onPin.call(this);
+        }
+      }
+    },
+
+    /**
+     * Freezes the current state of the widget
+     * @public
+     */
+    freeze: function freeze() {
+      this.frozen = true;
+      this.addClass("frozen");
+    },
+
+    /**
+     * Re-enables the default behaviour of the widget
+     * @public
+     */
+    unfreeze: function unfreeze() {
+      this.frozen = false;
+      this.removeClass("frozen");
+    },
+    top: function top() {
+      if (!this.hasClass("top")) {
+        this.addClass("top");
+        this.removeClass("notTop");
+
+        if (this.onTop) {
+          this.onTop.call(this);
+        }
+      }
+    },
+    notTop: function notTop() {
+      if (!this.hasClass("notTop")) {
+        this.addClass("notTop");
+        this.removeClass("top");
+
+        if (this.onNotTop) {
+          this.onNotTop.call(this);
+        }
+      }
+    },
+    bottom: function bottom() {
+      if (!this.hasClass("bottom")) {
+        this.addClass("bottom");
+        this.removeClass("notBottom");
+
+        if (this.onBottom) {
+          this.onBottom.call(this);
+        }
+      }
+    },
+    notBottom: function notBottom() {
+      if (!this.hasClass("notBottom")) {
+        this.addClass("notBottom");
+        this.removeClass("bottom");
+
+        if (this.onNotBottom) {
+          this.onNotBottom.call(this);
+        }
+      }
+    },
+    shouldUnpin: function shouldUnpin(details) {
+      var scrollingDown = details.direction === "down";
+      return scrollingDown && !details.top && details.toleranceExceeded;
+    },
+    shouldPin: function shouldPin(details) {
+      var scrollingUp = details.direction === "up";
+      return scrollingUp && details.toleranceExceeded || details.top;
+    },
+    addClass: function addClass(className) {
+      this.elem.classList.add.apply(this.elem.classList, this.classes[className].split(" "));
+    },
+    removeClass: function removeClass(className) {
+      this.elem.classList.remove.apply(this.elem.classList, this.classes[className].split(" "));
+    },
+    hasClass: function hasClass(className) {
+      return this.classes[className].split(" ").every(function (cls) {
+        return this.classList.contains(cls);
+      }, this.elem);
+    },
+    update: function update(details) {
+      if (details.isOutOfBounds) {
+        // Ignore bouncy scrolling in OSX
+        return;
+      }
+
+      if (this.frozen === true) {
+        return;
+      }
+
+      if (details.top) {
+        this.top();
+      } else {
+        this.notTop();
+      }
+
+      if (details.bottom) {
+        this.bottom();
+      } else {
+        this.notBottom();
+      }
+
+      if (this.shouldUnpin(details)) {
+        this.unpin();
+      } else if (this.shouldPin(details)) {
+        this.pin();
+      }
+    }
+  };
+  /**
+   * Default options
+   * @type {Object}
+   */
+
+  Headroom.options = {
+    tolerance: {
+      up: 0,
+      down: 0
+    },
+    offset: 0,
+    scroller: isBrowser() ? window : null,
+    classes: {
+      frozen: "headroom--frozen",
+      pinned: "headroom--pinned",
+      unpinned: "headroom--unpinned",
+      top: "headroom--top",
+      notTop: "headroom--not-top",
+      bottom: "headroom--bottom",
+      notBottom: "headroom--not-bottom",
+      initial: "headroom"
+    }
+  };
+  Headroom.cutsTheMustard = isSupported();
+  return Headroom;
+});
+
+/***/ }),
+
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
@@ -22610,6 +23017,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var what_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! what-input */ "./node_modules/what-input/dist/what-input.js");
 /* harmony import */ var what_input__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(what_input__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var headroom_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! headroom.js */ "./node_modules/headroom.js/dist/headroom.js");
+/* harmony import */ var headroom_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(headroom_js__WEBPACK_IMPORTED_MODULE_2__);
+
 
  // Foundation JS relies on a global variable. In ES6, all imports are hoisted
 // to the top of the file so if we used `import` to import Foundation,
@@ -22625,6 +23035,56 @@ __webpack_require__(/*! foundation-sites */ "./node_modules/foundation-sites/dis
 
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).foundation();
+var mySiteHeader = document.querySelector('.siteheader');
+
+if (mySiteHeader) {
+  var siteheaderheadroom = new headroom_js__WEBPACK_IMPORTED_MODULE_2___default.a(mySiteHeader, {
+    offset: 76,
+    // tolerance : {
+    //     up : 76,
+    //     down : 0
+    // },
+    classes: {
+      // when element is initialised
+      initial: "headroom",
+      // when scrolling up
+      pinned: "siteheader--pinned",
+      // when scrolling down
+      unpinned: "siteheader--unpinned",
+      // when above offset
+      top: "siteheader--top",
+      // when below offset
+      notTop: "siteheader--not-top",
+      // when at bottom of scoll area
+      bottom: "siteheader--bottom",
+      // when not at bottom of scroll area
+      notBottom: "siteheader--not-bottom",
+      // when frozen method has been called
+      frozen: "siteheader--frozen"
+    }
+  });
+  siteheaderheadroom.init();
+}
+
+var mySitemheader = document.querySelector('.sitemheader');
+
+if (mySitemheader) {
+  var sitemheaderheadroom = new headroom_js__WEBPACK_IMPORTED_MODULE_2___default.a(mySitemheader, {
+    offset: 56,
+    classes: {
+      initial: "headroom",
+      pinned: "sitemheader--pinned",
+      unpinned: "sitemheader--unpinned",
+      top: "sitemheader--top",
+      notTop: "sitemheader--not-top",
+      bottom: "sitemheader--bottom",
+      notBottom: "sitemheader--not-bottom",
+      frozen: "sitemheader--frozen"
+    }
+  });
+  sitemheaderheadroom.init();
+}
+
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-mobilenavpanelopen').on('click', function (e) {
   e.preventDefault();
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('is-frozen');
