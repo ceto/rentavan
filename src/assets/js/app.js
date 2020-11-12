@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import 'what-input';
+import Headroom from "headroom.js";
 
 // Foundation JS relies on a global variable. In ES6, all imports are hoisted
 // to the top of the file so if we used `import` to import Foundation,
@@ -15,6 +16,54 @@ require('foundation-sites');
 
 
 $(document).foundation();
+
+var mySiteHeader = document.querySelector('.siteheader');
+if (mySiteHeader) {
+    var siteheaderheadroom = new Headroom(mySiteHeader, {
+        offset : 76,
+        // tolerance : {
+        //     up : 76,
+        //     down : 0
+        // },
+        classes : {
+            // when element is initialised
+            initial : "headroom",
+            // when scrolling up
+            pinned : "siteheader--pinned",
+            // when scrolling down
+            unpinned : "siteheader--unpinned",
+            // when above offset
+            top : "siteheader--top",
+            // when below offset
+            notTop : "siteheader--not-top",
+            // when at bottom of scoll area
+            bottom : "siteheader--bottom",
+            // when not at bottom of scroll area
+            notBottom : "siteheader--not-bottom",
+            // when frozen method has been called
+            frozen: "siteheader--frozen"
+        },
+    });
+    siteheaderheadroom.init();
+}
+
+var mySitemheader = document.querySelector('.sitemheader');
+if (mySitemheader) {
+    var sitemheaderheadroom = new Headroom(mySitemheader, {
+        offset : 56,
+        classes : {
+            initial : "headroom",
+            pinned : "sitemheader--pinned",
+            unpinned : "sitemheader--unpinned",
+            top : "sitemheader--top",
+            notTop : "sitemheader--not-top",
+            bottom : "sitemheader--bottom",
+            notBottom : "sitemheader--not-bottom",
+            frozen: "sitemheader--frozen"
+        },
+    });
+    sitemheaderheadroom.init();
+}
 
 
 $('.js-mobilenavpanelopen').on('click', function(e) {

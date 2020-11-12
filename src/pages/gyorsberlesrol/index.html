@@ -1,4 +1,7 @@
-<section class="hero colored">
+---
+layout: subpage
+---
+<section class="hero colored" data-magellan>
     <figure class="hero__fig floatingwider nomask">
         <img src="{{root}}assets/img/content/illust04.svg" alt="">
     </figure>
@@ -6,9 +9,10 @@
         <div class="rentavan"><span class="egy">RENT-A-VAN</span><span class="ketto">Furgon gyorsbérlés</span></div>
         <h3>Tudnivalók a <span>VIARENT</span> gyorsbérlésről</h3>
         <h4>Ne várj a szállítókra, csináld magad!</h4>
-        <p><a class="button secondary" href="#">Tovább a részletekre</a></p>
+        <p><a class="button secondary" href="#details">Tovább a részletekre</a></p>
     </div>
 </section>
+<div id="details" data-magelan-target="details">
 <div class="pagewrap novpad xlighttowhite">
     <div class="pagewrap nobottom">
         <ul class="advcardgrid">
@@ -92,7 +96,7 @@
         </ul>
         <br><br><br>
         <div class="text-center">
-            <a href="{{root}}araink/" class="button large secondary">Tarifatáblázat és online ajánlatkérés</a> 
+            <a href="{{root}}#araink" class="button large secondary">Tarifatáblázat és online ajánlatkérés</a> 
         </div>
     </div>
 </div>
@@ -103,4 +107,5 @@
         <h2 class="sectitle">Gyakori kérdések</h2>
         <br>
         {{>faq}}
+</div>
 </div>

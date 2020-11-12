@@ -193,14 +193,14 @@
 
     width:100%;
     margin-right: -.5em;
-    font-size: .875rem;
+    font-size: .75rem;
     text-transform: uppercase;
     // letter-spacing: .025em;
     line-height: 1.2;
     font-weight: $fw-bold;
 
     @include breakpoint($bp-large) {
-        font-size: 1.125rem;
+        font-size: .9375rem;
         margin-right: -.75em;
     }
     @include breakpoint($bp-xlarge) {

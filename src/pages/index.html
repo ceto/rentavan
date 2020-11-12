@@ -1,11 +1,12 @@
 {{> homehero }}
+<div id="about" data-magellan-target="about">
 <section class="pagewrap novpad">
     <div class="pagewrap">
         <h2 class="sectitle text-center">Válassza a Viarent bérautóit!</h2>
         <br>
-        <div class="accentcopy">
+        <div class="accentcopy" data-magellan>
             <p>Költözéshez, bútorszállításhoz, rendezvényszervezéshez, céges beszerzésekhez amikor sürgősen kell egy kisteherautó a szállításhoz segít a VIARENT. A felsoroltakon kívül még számos esetben előfordulhat, hogy szüksége van egy kisteherautóra, ezekre a helyzetekre megoldás a rövid távú bérlet! Ne keressen tovább, a VIARENT Magyarország piacvezető haszonjármű bérbeadójaként, elindította a RENT-A-VAN szolgáltatását. Már 4 órás időtartamra is biztosítunk kis áruszállító járműveket az igényeknek megfelelően.</p>
-            <p class="text-center"><a href="{{root}}araink/" class="button tertiary">Tarifatáblázatunk</a> <a href="{{root}}ajanlatkeres/" class="button secondary">Ajánlatkérés</a></p>
+            <p class="text-center"><a href="#araink" class="button tertiary">Tarifatáblázatunk</a> <a href="#ajanlatkeres" class="button secondary">Ajánlatkérés</a></p>
         </div>
     </div>
 </section>
@@ -37,7 +38,7 @@
         <h3>Költözéshez is <span>RENT-A-VAN</span> szolgáltatás</h3>
         <p>A furgon, kisteherautó bérlés a legjobb megoldás arra, hogy könnyebbé, egyszerűbbé és költséghatékonyabbá tegyünk a költözést, az ember életében amúgy is nagy változás családunkat, irodánkat, cégünket elköltöztetni egy másik helyszínre, tegye ezt egy kiszámítható, megbízható szolgáltatás segítségével.</p>
         <p>A VIARENT kollégái munkanapokon állnak rendelkezésre, de műszaki kollégáink 7/24-ben azaz bármikor elérhetőek, így műszaki meghibásodás vagy baleset esetén azonnal tudnak segítséget nyújtani.</p>
-        <p><a href="{{root}}ajanlatkeres/" class="button">Ajánlatot kérése most</a></p>
+        <p><a href="#ajanlatkeres" class="button">Ajánlatot kérése most</a></p>
     </div>
     <div class="mpt__media">
         <figure class="mpt__fig">
@@ -45,7 +46,6 @@
         </figure>
     </div>
 </section>
-
 <section class="pagewrap notop">
     <div class="pagewrap xlight">
         <h3>JÁRMŰ BÉRLÉS <span>vs.</span> KÖLTÖZTETŐ CÉG</h3>
@@ -58,20 +58,7 @@
         </ul>
     </div>
 </section>
-<section class="pagewrap nobottom">
-    <h2 class="sectitle text-center ">Járművek már napi 7 900 Ft-tól</h2>
-    <h4 class="text-center">Furgonok, kisteherautók és tehergépkocsik.<br>Hűtős, ponyvás és dobozos kivitelben.</h4>
-    <div class="pagewrap novpad">
-        {{>prtbl-0}}
-        <div class="text-center">
-            <a href="{{root}}araink/" class="button large secondary">Mutasd mindet</a>
-        </div>
-    </div>
-</section>
-<figure class="pagewrapimage">
-    <img src="{{root}}assets/img/content/manandfurgon-02.jpg" alt="">
-</figure>
-
+</div>
 <section class="pagewrap xlight">
     <div class="pagewrap novpad">
         <ul class="duowrap kiskepes">
@@ -94,3 +81,31 @@
         </ul>
     </div>
 </section>
+<section id="araink" class="pagewrap nobottom" data-magellan-target="araink">
+    <h2 class="sectitle text-center ">Rövid távú bérleti tarifatáblázat</h2>
+    <h4 class="text-center">Furgonok, kisteherautók és tehergépkocsik.<br>Hűtős, ponyvás és dobozos kivitelben.</h4>
+    <div class="pagewrap novpad">
+        {{>prtbl-1}}
+        {{>prtbl-2}}
+        <div class="text-center" data-magellan>
+            <a href="#ajanlatkeres" class="button large secondary">Ajánlatkérés</a>
+        </div>
+    </div>
+</section>
+<figure class="pagewrapimage">
+    <img src="{{root}}assets/img/content/manandfurgon-02.jpg" alt="">
+</figure>
+<div  id="gyik" class="pagewrap" data-magellan-target="gyik">
+    <div class="pagewrap novpad">
+        <h2 class="sectitle">Gyakori kérdések</h2>
+        <br>
+        {{>faq}}
+    </div>
+</div>
+<div id="ajanlatkeres" class="pagewrap primaryvar" data-magellan-target="ajanlatkeres">
+    <div class="pagewrap">
+        <h2 class="sectitle text-center">Ajánlatkérés</h2>
+        <br>    
+        {{>requestform}}
+    </div>
+</div>

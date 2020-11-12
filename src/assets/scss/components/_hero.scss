@@ -8,10 +8,13 @@ $hcmaxwidth:60em;
     box-shadow: inset .5rem 0 .5rem -.5rem rgba(#000,.5);
 
     @include breakpoint($bp-tablet) {
-        min-height: calc(68vw - #{$globalsidebarwidth});
+        min-height: calc(80vw - #{$globalsidebarwidth});
     }
 
     @include breakpoint($bp-large) {
+        min-height: calc(65vw - #{$globalsidebarwidth});
+    }
+    @include breakpoint($bp-xlarge) {
         min-height: calc(56.25vw - #{$globalsidebarwidth});
     }
 
@@ -94,7 +97,7 @@ $hcmaxwidth:60em;
     margin-left: 0;
     text-shadow: 0 0 1.5rem rgba(#000,.5);
     padding-top:25%;
-    font-size:.75rem;
+    font-size:.875rem;
 
     @include breakpoint($bp-tablet) {
         position: absolute;
@@ -120,7 +123,7 @@ $hcmaxwidth:60em;
 
     }
     @include breakpoint($bp-xxlarge) {
-        font-size:1.125rem;
+        font-size:1rem;
 
     }
 

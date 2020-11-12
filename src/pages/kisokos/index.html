@@ -1,4 +1,7 @@
-<section class="hero colored">
+---
+layout: subpage
+---
+<section class="hero colored" data-magellan>
     <figure class="hero__fig nomask floating">
         <img src="{{root}}assets/img/content/illust02.svg" alt="">
     </figure>
@@ -6,9 +9,10 @@
         <div class="rentavan"><span class="egy">RENT-A-VAN</span><span class="ketto">Furgon gyorsbérlés</span></div>
         <h3>Hogyan rakodjuk meg a költöztető autót?</h3>
         <h4>Étékek, iratok, nehéz tárgyak, ágy heverő és matracok. Útmutónkban megmutatjuk a költöztető teherautó helyes rakodását.</h4>
-        <p><a class="button secondary" href="#">Tovább a részletekre</a></p>
+        <p><a class="button secondary" href="#details">Mutasd a részleteket</a></p>
     </div>
 </section>
+<div id="details" data-magelan-target="details">
 <div class="callpromo tertiary">
     <div class="callpromo__inner">
         <img src="{{root}}assets/img/content/H-zero.svg" alt="">
@@ -141,5 +145,10 @@
                 </div>
             </li>
         </ul>
+        <br><br><br>
+        <div class="text-center" data-magellan>
+            <a href="{{root}}" class="button large secondary">Ugrás ide: Lakossági bérleti ajánlat</a>
+        </div>
     </div>
+</div>
 </div>
