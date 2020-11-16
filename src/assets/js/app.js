@@ -160,7 +160,7 @@ $(".reqform").on("submit", function(ev, frm) {
                     console.log(response.text);
                 } else {
                     output = '<p class="itsok">' + response.text + '</p>';
-                    $form.addClass("is-alreadysent");
+                    $(".reqform").addClass("is-alreadysent");
                     $(".reqformsubmit").addClass('light');
                     $(".reqformclose").text($(".reqformclose").data('succestext')).removeClass('light');
                     $(".reqformresult").prepend(output);
