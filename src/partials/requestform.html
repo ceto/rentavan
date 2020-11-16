@@ -54,14 +54,14 @@
             </li>
             <li>
                 <label class="checkboxlabel" for="r_vehicle4">
-                    <input id="r_vehicle4" type="checkbox" name="r_vehicle[]" value="Tehergépkocsi 35-45m<sup>2</sup>">
-                    Tehergépkocsi 35-45m<sup>2</sup>
+                    <input id="r_vehicle4" type="checkbox" name="r_vehicle[]" value="Tehergépkocsi 35-45m<sup>3</sup>">
+                    Tehergépkocsi 35-45m<sup>3</sup>
                 </label>
             </li>
             <li>
                 <label class="checkboxlabel" for="r_vehicle5">
-                    <input id="r_vehicle5" type="checkbox" name="r_vehicle[]" value="Tehergépkocsi &gt;45m<sup>2</sup>">
-                    Tehergépkocsi &gt;45m<sup>2</sup>
+                    <input id="r_vehicle5" type="checkbox" name="r_vehicle[]" value="Tehergépkocsi &gt;45m<sup>3</sup>">
+                    Tehergépkocsi &gt;45m<sup>3</sup>
                 </label>
             </li>
             <li>
@@ -118,7 +118,7 @@
                     Hozzájárulok a kereskedelmi és marketing célú megkereséseknek
                 </label>
     </div>
-    <input type="hidden" name="r_pageurl" value="<?= home_url( add_query_arg( array(), $wp->request ) ); ?>">
+    <input type="hidden" name="r_pageurl" value="<?php echo home_url( add_query_arg( array(), $wp->request ) ); ?>">
     <input type="hidden" name="r_human" value="2">
 
     <div class="formactions">
