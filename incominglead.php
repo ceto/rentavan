@@ -26,10 +26,6 @@
             'label' => __('Telefon', 'viarent'),
             'value' => '',
         ),
-        'company' => array (
-            'label' => __('Cégnév', 'viarent'),
-            'value' => '',
-        ),
         'address' => array (
             'label' => __('Település', 'viarent'),
             'value' => '',
@@ -46,10 +42,6 @@
             'label' => __('Üzenet', 'viarent'),
             'value' => '',
         ),
-        'vcat' => array (
-            'label' => __('Jármű kategória', 'viarent'),
-            'value' => '',
-        ),
         'vehicle' => array (
             'label' => __('Jármű', 'viarent'),
             'value' => '',
@@ -57,11 +49,7 @@
         'time' => array (
             'label' => __('Bérlés időtartama', 'viarent'),
             'value' => '',
-        ),
-        'topic' => array (
-            'label' => __('Téma', 'viarent'),
-            'value' => '',
-        ),
+        )
     );
 ?>
 
@@ -80,8 +68,6 @@
     $data['name']['value'] = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
     $data['email']['value'] = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $data['tel']['value'] = filter_var($_POST["tel"], FILTER_SANITIZE_STRING);
-    $data['company']['value'] = filter_var($_POST["company"], FILTER_SANITIZE_STRING);
-    $data['topic']['value'] = filter_var($_POST["topic"], FILTER_SANITIZE_STRING);
     $data['acceptgdpr']['value'] = filter_var($_POST["acceptgdpr"], FILTER_SANITIZE_STRING);
     $data['acceptmarketing']['value'] = filter_var($_POST["acceptmarketing"], FILTER_SANITIZE_STRING);
 
@@ -145,7 +131,7 @@
     if( $leadid = wp_insert_post( $thelead ) ) {
         wp_update_post( array(
             'ID' => $leadid,
-            'post_title' => __('Kapcsolatfelvétel', 'viarent').' / '.$data['name']['value'].' #'.$leadid
+            'post_title' => __('Rövidtávú ajánlatkérés', 'viarent').' / '.$data['name']['value'].' #'.$leadid
         ));
     }
 ?>

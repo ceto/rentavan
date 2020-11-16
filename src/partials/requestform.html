@@ -4,29 +4,16 @@
             <li>
                 <h3 class="formstep__title">Személyes adatok</h3>
                 <ul class="inputgrid">
-                    <li>
-                        <label><input type="text" placeholder="Név" required name="r_name"></label>
-                    </li>
-                    <li>
-                        <label><input type="email" placeholder="E-mail cím" pattern="email" required name="r_email"></label>
-                    </li>
-                    <li>
-                        <label><input type="text" placeholder="Telefonszám" required name="r_tel"></label>
-                    </li>
-                    <li>
-                        <label><input type="text" placeholder="Cégnév" name="r_company"></label>
-                    </li>
-                    <li class="double">
-                        <label><input type="text" placeholder="Cím" name="r_address"></label>
-                    </li>
+                    <li><label><input type="text" placeholder="Név" required name="r_name"></label></li>
+                    <li><label><input type="email" placeholder="E-mail cím" pattern="email" required name="r_email"></label></li>
+                    <li><label><input type="text" placeholder="Telefonszám" required name="r_tel"></label></li>
+                    <li><label><input type="text" placeholder="Település" name="r_address"></label></li>
                 </ul>
             </li>
             <li>
                 <h3 class="formstep__title">Egyéb üzenet</h3>
                 <ul class="inputgrid">
-                    <li>
-                        <label><textarea rows="5" placeholder="Egyéb üzenet" name="r_message"></textarea></label>
-                    </li>
+                    <li><label><textarea rows="3" placeholder="Egyéb üzenet" name="r_message"></textarea></label></li>
                 </ul>
             </li>
         </ul>
@@ -47,7 +34,7 @@
                 </label>
             </li>
             <li>
-                <label class="checkboxlabel" for="r_vehicl3">
+                <label class="checkboxlabel" for="r_vehicle3">
                     <input id="r_vehicle3" type="checkbox" name="r_vehicle[]" value="Kisteherautó" required>
                     Kisteherautó
                 </label>
@@ -96,7 +83,7 @@
             </li>
             <li>
                 <label class="checkboxlabel" for="r_time2">
-                    <input id="r_time2" type="checkbox" name="r_time[]" value="1-3 hónap" required>
+                    <input id="r_time2" type="checkbox" name="r_time[]" value="1-3 hónap">
                     1-3 hónap
                 </label>
             </li>
@@ -118,9 +105,7 @@
                     Hozzájárulok a kereskedelmi és marketing célú megkereséseknek
                 </label>
     </div>
-    <input type="hidden" name="r_pageurl" value="<?php echo home_url( add_query_arg( array(), $wp->request ) ); ?>">
     <input type="hidden" name="r_human" value="2">
-
     <div class="formactions">
         <button id="reqformsubmit" class="button secondary large reqformsubmit" type="submit" data-progresstext="Küldés folyamatban" data-sendtext="Ajánlatkérés elküldése">
             Ajánlatkérés elküldése

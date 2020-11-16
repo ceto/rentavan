@@ -89,3 +89,113 @@ $('.js-allclose').on('click', function(e) {
     $('body').removeClass('is-frozen');
     $('body').removeClass('mobilenavpanel-is-open');
 });
+
+
+
+/**************
+ * 
+ * Form Handle
+ * 
+ * ***********/
+
+$(".reqform").on("submit", function(ev, frm) {
+    ev.preventDefault();
+
+
+    //get input field values
+    var user_name = $("input[name=r_name]").val();
+    var user_email = $("input[name=r_email]").val();
+    var user_tel = $("input[name=r_tel]").val();
+    var user_address = $("input[name=r_address]").val();
+    var user_message = $("textarea[name=r_message]").val();
+    
+    var user_acceptgdpr = $("input[name=r_acceptgdpr]").is(":checked")?1:0;
+    var user_acceptmarketing = $("input[name=r_acceptmarketing]").is(":checked")?1:0;
+
+    var user_vehicle= '';
+    var user_vehiclearray = [];
+    $.each($('input[name="r_vehicle[]"]:checked'), function(){
+        user_vehiclearray.push($(this).val());
+    });
+    user_vehicle+=user_vehiclearray.join(' | ');
+
+    var user_time= '';
+    var user_renttime = [];
+    $.each($('input[name="r_time[]"]:checked'), function(){
+        user_renttime.push($(this).val());
+    });
+    user_time+=user_renttime.join(' | ');
+
+    var proceed = true;
+    var output = "";
+
+
+
+    //everything looks good! proceed...
+    if (proceed) {
+        //data to be sent to server
+        var post_data = {
+            name: user_name,
+            email: user_email,
+            tel: user_tel,
+            address: user_address,
+            message: user_message,
+            acceptgdpr: user_acceptgdpr,
+            acceptmarketing: user_acceptmarketing,
+            time: user_time,
+            vehicle: user_vehicle
+        };
+        $(".reqformsubmit").addClass("disabled");
+        $(".reqformsubmit").attr("disabled", "disabled");
+        $(".reqformsubmit").text($(".reqformsubmit").data('progresstext'));
+
+        //Ajax post data to server
+        $.post(
+            $('.reqform').attr("action"),
+            post_data,
+            function(response) {
+                //load json data from server and output message
+                if (response.type === "error") {
+                    output = '<p class="itsnotok">' + response.text + '</p>';
+                    console.log(response.text);
+                } else {
+                    output = '<p class="itsok">' + response.text + '</p>';
+                    $form.addClass("is-alreadysent");
+                    $(".reqformsubmit").addClass('light');
+                    $(".reqformclose").text($(".reqformclose").data('succestext')).removeClass('light');
+                    $(".reqformresult").prepend(output);
+                    $(".reqformresult").addClass("is-active");
+
+                    var fn = window.gtag;
+                    if (typeof fn === "function") {
+                        gtag("event", "sent", {
+                            event_category: "form"
+                        });
+                        console.log("Gtag event fired");
+                    } else {
+                        console.log("No global gtag defined");
+                    }
+
+                    //reset values in all input fields
+                    $("input").val("");
+                    $("textarea").val("");
+                }
+                $(".reqformresult")
+                    .hide()
+                    .html(output)
+                    .slideDown();
+                $(".reqformsubmit").removeClass("disabled");
+                $(".reqformsubmit").removeAttr("disabled");
+                $(".reqformsubmit").text($(".reqformsubmit").data('sendtext'));
+            },
+            "json"
+        );
+    }
+
+    return false;
+});
+
+//reset previously set border colors and hide all message on .keyup()
+$('.reqform input, .reqform textarea, .reqform [name="r_acceptgdpr"]').keyup(function() {
+    $(".reqformresult").slideUp();
+});
