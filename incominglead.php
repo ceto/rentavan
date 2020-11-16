@@ -11,7 +11,7 @@
     $to_email = "szabogabor@hydrogene.hu";
     $bcc_email = "leads@vieeye.hu";
 
-    $incomingsubject = __('[DEV] VIARENT.HU | Érdeklődés, kapcsolatfelvétel','viarent');
+    $incomingsubject = __('[DEV] VIARENT.HU LAKOSSÁGI | Ajánlatkérés','viarent');
     $resp_subject = "[DEV] Viarent - Érdeklődésedet köszönjük";
     $data = array(
         'name' => array (
