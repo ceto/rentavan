@@ -68,6 +68,9 @@
     $data['name']['value'] = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
     $data['email']['value'] = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $data['tel']['value'] = filter_var($_POST["tel"], FILTER_SANITIZE_STRING);
+    $data['address']['value'] = filter_var($_POST["address"], FILTER_SANITIZE_STRING);
+    $data['vehicle']['value'] = filter_var($_POST["vehicle"], FILTER_SANITIZE_STRING);
+    $data['time']['value'] = filter_var($_POST["time"], FILTER_SANITIZE_STRING);
     $data['acceptgdpr']['value'] = filter_var($_POST["acceptgdpr"], FILTER_SANITIZE_STRING);
     $data['acceptmarketing']['value'] = filter_var($_POST["acceptmarketing"], FILTER_SANITIZE_STRING);
 
