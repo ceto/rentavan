@@ -23160,7 +23160,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(".reqform").on("submit", function 
         console.log(response.text);
       } else {
         output = '<p class="itsok">' + response.text + '</p>';
-        $form.addClass("is-alreadysent");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(".reqform").addClass("is-alreadysent");
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(".reqformsubmit").addClass('light');
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(".reqformclose").text(jquery__WEBPACK_IMPORTED_MODULE_0___default()(".reqformclose").data('succestext')).removeClass('light');
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(".reqformresult").prepend(output);
