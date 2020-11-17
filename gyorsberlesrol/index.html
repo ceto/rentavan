@@ -240,8 +240,17 @@
                 </ul>
 </div>
 </div>
-
-<section class="callpromo">
+<aside class="sidesticky" data-magellan>
+    <a class="sidesticky__action" href="../#ajanlatkeres">
+        <svg><use xlink:href="./assets/img/svg-icons.svg#icon-sendmessage"></use></svg>
+    </a>
+    <a target="_blank" href="<?php the_field('facebook', 'option'); ?>" class="sidesticky__action">
+        <svg><use xlink:href="./assets/img/svg-icons.svg#icon-facebook"></use></svg>
+    </a>
+    <a target="_blank" href="<?php the_field('instagram', 'option'); ?>" class="sidesticky__action">
+        <svg><use xlink:href="./assets/img/svg-icons.svg#icon-instagram"></use></svg>
+    </a>
+</aside><section class="callpromo">
         <div class="callpromo__inner">
             <img src="../assets/img/content/callcenter.svg" alt="">
             <div class="callpromo__content">
@@ -302,16 +311,15 @@
                 <li><a href="#">Sütik kezelése</a></li>
             </ul>
             <ul class="sociallist">
-                <li><a target="_blank" href="https://www.facebook.com/viarentmagyarorszag/" class="socialbtn"><svg><use xlink:href="./assets/img/svg-icons.svg#icon-facebook"></use></svg></a></li>
-                <li><a target="_blank" href="https://www.instagram.com/viarent_com/" class="socialbtn"><svg><use xlink:href="./assets/img/svg-icons.svg#icon-instagram"></use></svg></a></li>
+                <li><a target="_blank" href="<?php the_field('facebook', 'option'); ?>" class="socialbtn"><svg><use xlink:href="./assets/img/svg-icons.svg#icon-facebook"></use></svg></a></li>
+                <li><a target="_blank" href="<?php the_field('instagram', 'option'); ?>" class="socialbtn"><svg><use xlink:href="./assets/img/svg-icons.svg#icon-instagram"></use></svg></a></li>
             </ul>
         </div>
         <div class="sitefooter__bottom__second">
             <svg><use xlink:href="./assets/img/svg-icons.svg#icon-logo-mono"></use></svg>
         </div>
     </div>
-</footer>
-<aside class="mobilenavpanel">
+</footer><aside class="mobilenavpanel">
     <ul class="mobilemenu">
         <li>
             <a href="../#about">

@@ -279,7 +279,7 @@
 <figure class="pagewrapimage">
     <img src="assets/img/content/manandfurgon-02.jpg" alt="">
 </figure>
-<div  id="gyik" class="pagewrap" data-magellan-target="gyik">
+<div  id="gyik" class="pagewrap xlight" data-magellan-target="gyik">
     <div class="pagewrap novpad">
         <h2 class="sectitle">Gyakori kérdések</h2>
         <br>
@@ -341,6 +341,33 @@
                 </ul>
     </div>
 </div>
+
+<section class="mpt">
+    <div class="mpt__content">
+        <h3>KÖZÉP-EURÓPA EGYIK LEGNAGYOBB KIS- ÉS NAGYHASZONGÉPJÁRMŰ BÉRBEADÓ CÉGE</h3>
+        <p>A VIARENT a Delta Vállalatcsoport tagja. Cégünket, a VIARENT Kft.-t 1994-ben alapítottuk (VIA Bérautó néven) mely azóta piacvezetővé vált Magyarországon.</p>
+        <p>Az alapítás óta számos változáson ment keresztül iparágunk. Partnereink; gyártók és kereskedők is komoly szemléletváltáson mentek át, ma már igyekeznek jellemzően a saját termelő tevékenységükre koncentrálva dolgozni, amelyhez nem kapcsolódik szorosan az áruszállítás.</p>
+        <p>Így előtérbe került a bérteherautóval való szállítás, hiszen az általunk kínált konstrukciónak számos előnyei vannak a lízinggel szemben. A bérlet előnyeit a fuvarosok is hamar felismerték, hiszen a fuvarfeladatok gyors változása az eszközök gyors cseréjét is eredményezheti, amely egy 3-5 éves lízing szerződéssel megoldhatatlannak tűnhet.</p>
+        <p>Cégünk márkafüggetlen haszonjármű-bérbeadóként szinte az összes nagy európai gyártóval kapcsolatban van. Flottánk jellemzően 3,5 tonnás furgonokból, 6-18 tonnás teherautókból, különböző fuvarfeladatokra alkalmas félpótkocsikból és nyerges vontatókból áll.</p>
+    </div>
+    <div class="mpt__media">
+        <figure class="mpt__fig">
+            <img src="assets/img/content/deltatruck.jpg" alt="">
+        </figure>
+    </div>
+</section>
+<section class="pagewrap notop">
+    <div class="pagewrap xlight">
+        <div class="bodycopy">
+            <h3>Lakossági üzletág</h3>
+            <p>A nagy érdeklődésre való reagálásként a lakossági igényeket kiszolgáló üzletágunkat 2020 elején hoztuk létre. A rövid távú, lakossági bérlőink is modern, fiatal, keveset futott járműveket tudnak használni. (főleg furgonok teszik ki a flotta nagy részét, de természetesen más jellegű járművek is rendelkezésre állnak).</p>
+            <p>Teljesen új tarifarendszert dolgoztunk ki, amivel egy versenyképes szolgáltatást tudunk nyújtani. Hitvallásunk, hogy cégünk sikere az általunk kínált termékek és szolgáltatások sokszínűségében, magas színvonalában rejlik.</p>
+            <p>Célunk, hogy ügyfeleink minél gyorsabban, takarékosabban, vagyis hatékonyabban tudják elvégezni fuvarfeladataikat.</p>
+            <p>VIARENT 2020</p>
+        </div>
+    </div>
+</section>
+
 <div id="ajanlatkeres" class="pagewrap primaryvar" data-magellan-target="ajanlatkeres">
     <div class="pagewrap">
         <h2 class="sectitle text-center">Ajánlatkérés</h2>
@@ -369,9 +396,15 @@
                 <h3 class="formstep__title">Válassza ki a bérelni kívánt járművet!*</h3>
                 <ul class="checkergrid">
                     <li>
+                        <label class="checkboxlabel" for="r_vehicle0">
+                            <input id="r_vehicle0" type="checkbox" name="r_vehicle[]" value="Furgon - kicsi">
+                            Furgon kicsi
+                        </label>
+                    </li>
+                    <li>
                         <label class="checkboxlabel" for="r_vehicle1">
-                            <input id="r_vehicle1" type="checkbox" name="r_vehicle[]" value="Furgon">
-                            Furgon
+                            <input id="r_vehicle1" type="checkbox" name="r_vehicle[]" value="Furgon - zárt áruszállító">
+                            Furgon - zárt áruszállító
                         </label>
                     </li>
                     <li>
@@ -461,8 +494,17 @@
             <div id="reqformresult" class="formresults reqformresult"></div>
           </form>    </div>
 </div>
-
-<section class="callpromo">
+<aside class="sidesticky" data-magellan>
+    <a class="sidesticky__action" href="#ajanlatkeres">
+        <svg><use xlink:href="./assets/img/svg-icons.svg#icon-sendmessage"></use></svg>
+    </a>
+    <a target="_blank" href="<?php the_field('facebook', 'option'); ?>" class="sidesticky__action">
+        <svg><use xlink:href="./assets/img/svg-icons.svg#icon-facebook"></use></svg>
+    </a>
+    <a target="_blank" href="<?php the_field('instagram', 'option'); ?>" class="sidesticky__action">
+        <svg><use xlink:href="./assets/img/svg-icons.svg#icon-instagram"></use></svg>
+    </a>
+</aside><section class="callpromo">
         <div class="callpromo__inner">
             <img src="assets/img/content/callcenter.svg" alt="">
             <div class="callpromo__content">
@@ -523,8 +565,8 @@
                 <li><a href="#">Sütik kezelése</a></li>
             </ul>
             <ul class="sociallist">
-                <li><a target="_blank" href="https://www.facebook.com/viarentmagyarorszag/" class="socialbtn"><svg><use xlink:href="./assets/img/svg-icons.svg#icon-facebook"></use></svg></a></li>
-                <li><a target="_blank" href="https://www.instagram.com/viarent_com/" class="socialbtn"><svg><use xlink:href="./assets/img/svg-icons.svg#icon-instagram"></use></svg></a></li>
+                <li><a target="_blank" href="<?php the_field('facebook', 'option'); ?>" class="socialbtn"><svg><use xlink:href="./assets/img/svg-icons.svg#icon-facebook"></use></svg></a></li>
+                <li><a target="_blank" href="<?php the_field('instagram', 'option'); ?>" class="socialbtn"><svg><use xlink:href="./assets/img/svg-icons.svg#icon-instagram"></use></svg></a></li>
             </ul>
         </div>
         <div class="sitefooter__bottom__second">
