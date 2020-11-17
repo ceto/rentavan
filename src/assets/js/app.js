@@ -66,6 +66,24 @@ if (mySitemheader) {
 }
 
 
+var mySideSticky = document.querySelector('.sidesticky');
+if (mySideSticky) {
+    var sidestickyheadroom = new Headroom(mySideSticky, {
+        classes : {
+            initial : "headroom",
+            pinned : "sidesticky--pinned",
+            unpinned : "sidesticky--unpinned",
+            top : "sidesticky--top",
+            notTop : "sidesticky--not-top",
+            bottom : "sidesticky--bottom",
+            notBottom : "sidesticky--not-bottom",
+            frozen: "sidesticky--frozen"
+        },
+    });
+    sidestickyheadroom.init();
+}
+
+
 $('.js-mobilenavpanelopen').on('click', function(e) {
     e.preventDefault();
     $('body').addClass('is-frozen');
