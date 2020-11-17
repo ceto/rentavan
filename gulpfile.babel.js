@@ -200,9 +200,9 @@ function svgicons() {
         return file.contents.toString();
     }
 
-    return gulp.src('src/assets/iconcollection/tmpl/svg-icons.svg')
+    return gulp.src('src/partials/iconsprite.html')
         .pipe(inject(svgs, { transform: fileContents }))
-        .pipe(gulp.dest(PATHS.dist + '/assets/img'));
+        .pipe(gulp.dest('src/partials'));
 };
 
 
