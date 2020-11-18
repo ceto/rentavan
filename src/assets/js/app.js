@@ -83,7 +83,10 @@ if (mySideSticky) {
     sidestickyheadroom.init();
 }
 
-
+$('.mobilemenu, .mobilesecmenu').on('click','a', function(e){
+    $('body').removeClass('is-frozen');
+    $('body').removeClass('mobilenavpanel-is-open');
+});
 $('.js-mobilenavpanelopen').on('click', function(e) {
     e.preventDefault();
     $('body').addClass('is-frozen');
