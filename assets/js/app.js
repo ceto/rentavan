@@ -23103,6 +23103,10 @@ if (mySideSticky) {
   sidestickyheadroom.init();
 }
 
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.mobilemenu, .mobilesecmenu').on('click', 'a', function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('is-frozen');
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('mobilenavpanel-is-open');
+});
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-mobilenavpanelopen').on('click', function (e) {
   e.preventDefault();
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('is-frozen');
