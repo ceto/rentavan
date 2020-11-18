@@ -5,14 +5,14 @@
 
 
 <?php
-    // $to_email = get_field('r_email', 'option');
-    // $bcc_email = get_field('bcc_email', 'option');
+    $to_email = get_field('r_email', 'option');
+    $bcc_email = get_field('bcc_email', 'option');
 
-    $to_email = "szabogabor@hydrogene.hu";
-    $bcc_email = "leads@vieeye.hu";
+    // $to_email = "szabogabor@hydrogene.hu";
+    // $bcc_email = "leads@vieeye.hu";
 
-    $incomingsubject = __('[DEV] VIARENT.HU LAKOSSÁGI | Ajánlatkérés','viarent');
-    $resp_subject = "[DEV] Viarent - Érdeklődésedet köszönjük";
+    $incomingsubject = __('VIARENT.HU LAKOSSÁGI | Ajánlatkérés','viarent');
+    $resp_subject = "Viarent - Érdeklődésedet köszönjük";
     $data = array(
         'name' => array (
             'label' => __('Név', 'viarent'),
