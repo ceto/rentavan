@@ -57,15 +57,18 @@ select {
 }
 
 .formresults {
-    font-size: .875rem;
+    font-size: .9375rem;
     text-align: center;
     font-weight: $fw-bold;
+    color: #fff;
+
     p {
         margin:0;
+        &.itsnotok {
+            // color:$cl-primary;
+        }
     }
-    .itsnotok {
-        color:$cl-primary;
-    }
+    
 }
 .viaform {
     margin: 0 auto;
@@ -271,7 +274,7 @@ select {
 form .result {
     font-family: $fontsans;
     font-weight: $fw-bold;
-    font-size: .875rem;
+    font-size: .9375rem;
     text-align: center;
     margin:1em 0 0;
     p {
@@ -279,9 +282,9 @@ form .result {
         line-height: 1.2;
         padding:.5em;
         background-color: $cl-gray-xlight;
-        &.itsnotok {
-            color: $cl-primary;
-        }
+        // &.itsnotok {
+        //     color: $cl-primary;
+        // }
     }
 }
 
