@@ -23187,17 +23187,10 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(".reqform").on("submit", function 
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(".reqformclose").text(jquery__WEBPACK_IMPORTED_MODULE_0___default()(".reqformclose").data('succestext')).removeClass('light');
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(".reqformresult").prepend(output);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(".reqformresult").addClass("is-active");
-        var fn = window.gtag;
-
-        if (typeof fn === "function") {
-          gtag("event", "sent", {
-            event_category: "form"
-          });
-          console.log("Gtag event fired");
-        } else {
-          console.log("No global gtag defined");
-        } //reset values in all input fields
-
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'Ajanlatkeres Lakossagi Success'
+        }); //reset values in all input fields
 
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("input").val("");
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("textarea").val("");
