@@ -187,15 +187,10 @@ $(".reqform").on("submit", function(ev, frm) {
                     $(".reqformresult").prepend(output);
                     $(".reqformresult").addClass("is-active");
 
-                    var fn = window.gtag;
-                    if (typeof fn === "function") {
-                        gtag("event", "sent", {
-                            event_category: "form"
-                        });
-                        console.log("Gtag event fired");
-                    } else {
-                        console.log("No global gtag defined");
-                    }
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'Ajanlatkeres Lakossagi Success'
+                    });
 
                     //reset values in all input fields
                     $("input").val("");

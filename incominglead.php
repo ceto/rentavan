@@ -60,7 +60,7 @@
         die($output);
     }
 
-    if( !isset($_POST["name"]) || !isset($_POST["email"]) || !isset($_POST["tel"]) ) {
+    if( (strlen($_POST["name"]) < 2) || (strlen($_POST["email"]) < 2) || (strlen($_POST["tel"]) < 2) || (strlen($_POST["address"]) < 2) ) {
         $output = json_encode(array('type'=>'error', 'text' => __('Hiányzó kötelező mező. Ellenőrizze a megadott adatokat.','viarent') ));
         die($output);
     }
