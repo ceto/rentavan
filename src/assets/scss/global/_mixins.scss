@@ -121,20 +121,18 @@
         margin-bottom: .5em;
     }
 
-    // &.ingrid {
-    //     display: flex;
-    //     flex-wrap: wrap;
-    //     gap: 0 rem-calc($layout-gutter-width);
-    //     > li {
-    //         flex-basis: 27em;
-    //         flex-grow: 1;
-    //     }
-    // }
-
     &.ingrid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(27em, 1fr));
-        grid-column-gap: rem-calc($layout-gutter-width);
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem-calc($layout-gutter-width/2) rem-calc($layout-gutter-width);
+
+        > li {
+            flex-grow: 1;
+            flex-basis: 23em;
+            &:not(:last-child) {
+                margin-bottom: 0;
+            }
+        }
     }
     
 }
