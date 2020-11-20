@@ -12,7 +12,7 @@
     // $bcc_email = "leads@vieeye.hu";
 
     $incomingsubject = __('VIARENT.HU LAKOSSÁGI | Ajánlatkérés','viarent');
-    $resp_subject = "Viarent - Érdeklődésedet köszönjük";
+    $respsubject = "VIARENT.HU LAKOSSÁGI - Érdeklődését rögzítettük";
     $data = array(
         'name' => array (
             'label' => __('Név', 'viarent'),
@@ -149,12 +149,21 @@
         'Content-Type: text/html; charset=UTF-8'
     );
 
+    $respincomingheaders = array(
+        'From: '.$to_email,
+        'Reply-To: '.$to_email,
+        'BCC: '.$bcc_email,
+        'X-Mailer: PHP/' . phpversion(),
+        'Content-Type: text/html; charset=UTF-8'
+    );
+
     $sentMail = @wp_mail($to_email, $incomingsubject, $incominghtmlcontent, $incomingheaders);
 
     if(!$sentMail) {
         $output = json_encode(array('type'=>'error', 'text' => __('Hiba történt küldés során, próbálkozz újra!','viarent')));
         die($output);
     } else {
+        $respsentMail = @wp_mail($data['email']['value'], $respsubject, $incominghtmlcontent, $respincomingheaders);
         $output = json_encode(array('type'=>'success', 'text' => __('Köszönjük megkeresését! Üzenetét rögzítettük, munkatársunk hamarosan jelentkezik.','viarent')));
         die($output);
     }
