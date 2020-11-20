@@ -23083,25 +23083,23 @@ if (mySitemheader) {
     }
   });
   sitemheaderheadroom.init();
-}
+} // var mySideSticky = document.querySelector('.sidesticky');
+// if (mySideSticky) {
+//     var sidestickyheadroom = new Headroom(mySideSticky, {
+//         classes : {
+//             initial : "headroom",
+//             pinned : "sidesticky--pinned",
+//             unpinned : "sidesticky--unpinned",
+//             top : "sidesticky--top",
+//             notTop : "sidesticky--not-top",
+//             bottom : "sidesticky--bottom",
+//             notBottom : "sidesticky--not-bottom",
+//             frozen: "sidesticky--frozen"
+//         },
+//     });
+//     sidestickyheadroom.init();
+// }
 
-var mySideSticky = document.querySelector('.sidesticky');
-
-if (mySideSticky) {
-  var sidestickyheadroom = new headroom_js__WEBPACK_IMPORTED_MODULE_2___default.a(mySideSticky, {
-    classes: {
-      initial: "headroom",
-      pinned: "sidesticky--pinned",
-      unpinned: "sidesticky--unpinned",
-      top: "sidesticky--top",
-      notTop: "sidesticky--not-top",
-      bottom: "sidesticky--bottom",
-      notBottom: "sidesticky--not-bottom",
-      frozen: "sidesticky--frozen"
-    }
-  });
-  sidestickyheadroom.init();
-}
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.mobilemenu, .mobilesecmenu').on('click', 'a', function (e) {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('is-frozen');
