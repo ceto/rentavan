@@ -66,22 +66,22 @@ if (mySitemheader) {
 }
 
 
-var mySideSticky = document.querySelector('.sidesticky');
-if (mySideSticky) {
-    var sidestickyheadroom = new Headroom(mySideSticky, {
-        classes : {
-            initial : "headroom",
-            pinned : "sidesticky--pinned",
-            unpinned : "sidesticky--unpinned",
-            top : "sidesticky--top",
-            notTop : "sidesticky--not-top",
-            bottom : "sidesticky--bottom",
-            notBottom : "sidesticky--not-bottom",
-            frozen: "sidesticky--frozen"
-        },
-    });
-    sidestickyheadroom.init();
-}
+// var mySideSticky = document.querySelector('.sidesticky');
+// if (mySideSticky) {
+//     var sidestickyheadroom = new Headroom(mySideSticky, {
+//         classes : {
+//             initial : "headroom",
+//             pinned : "sidesticky--pinned",
+//             unpinned : "sidesticky--unpinned",
+//             top : "sidesticky--top",
+//             notTop : "sidesticky--not-top",
+//             bottom : "sidesticky--bottom",
+//             notBottom : "sidesticky--not-bottom",
+//             frozen: "sidesticky--frozen"
+//         },
+//     });
+//     sidestickyheadroom.init();
+// }
 
 $('.mobilemenu, .mobilesecmenu').on('click','a', function(e){
     $('body').removeClass('is-frozen');
